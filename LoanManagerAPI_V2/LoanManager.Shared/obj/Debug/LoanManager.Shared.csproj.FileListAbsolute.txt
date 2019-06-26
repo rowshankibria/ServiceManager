@@ -99,3 +99,4 @@ E:\Projects\PERSONAL\Service-Management\Application\Master\LoanManagerAPI_V2\Loa
 E:\Projects\PERSONAL\Service-Management\Application\Master\LoanManagerAPI_V2\LoanManager.Shared\obj\Debug\LoanManager.Shared.csproj.CopyComplete
 E:\Projects\PERSONAL\Service-Management\Application\Master\LoanManagerAPI_V2\LoanManager.Shared\obj\Debug\LoanManager.Shared.dll
 E:\Projects\PERSONAL\Service-Management\Application\Master\LoanManagerAPI_V2\LoanManager.Shared\obj\Debug\LoanManager.Shared.pdb
+E:\Projects\PERSONAL\Service-Management\Application\Master\LoanManagerAPI_V2\LoanManager.Shared\obj\Debug\LoanManager.Shared.csprojAssemblyReference.cache

@@ -21,3 +21,4 @@ E:\Projects\PERSONAL\Service-Management\Application\Master\LoanManagerAPI_V2\Loa
 E:\Projects\PERSONAL\Service-Management\Application\Master\LoanManagerAPI_V2\LoanManager.Api.Crm\obj\Debug\LoanManager.Api.Crm.csproj.CopyComplete
 E:\Projects\PERSONAL\Service-Management\Application\Master\LoanManagerAPI_V2\LoanManager.Api.Crm\obj\Debug\LoanManager.Api.Crm.dll
 E:\Projects\PERSONAL\Service-Management\Application\Master\LoanManagerAPI_V2\LoanManager.Api.Crm\obj\Debug\LoanManager.Api.Crm.pdb
+E:\Projects\PERSONAL\Service-Management\Application\Master\LoanManagerAPI_V2\LoanManager.Api.Crm\obj\Debug\LoanManager.Api.Crm.csprojAssemblyReference.cache
