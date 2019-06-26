@@ -1,0 +1,65 @@
+<div class="tab-detail-page-titlebar">
+    <app-titlebar style="position:unset!important;" (save)="onSaveClicked($event)" (close)="onCloseClicked($event)" (saveNew)="onSaveNNewClicked($event)" (saveClose)="onSaveNCloseClicked($event)"></app-titlebar>
+</div>
+<div class="detail-page-content-div" style="padding-top:0px!important;">
+    <form #categoryForm="ngForm">
+
+
+        <div class="row">
+            <div class="col-sm-12 col-xl-12 col-lg-12">
+
+                <div class="card mb-1" *ngFor="let approverGrp of approverGroupList; let i = index;">
+                    <div class="card-header" data-toggle="collapse" [attr.href]="'#collapse' + i" style="padding-bottom:0px; margin-bottom:0px;">
+                        <a class="card-title">
+                            {{approverGrp.name}}
+                        </a>
+                    </div>
+                    <div id="collapse{{i}}" class="card-body show" style="padding:0px;">
+                        <div class="row" style="padding:5px;">
+                            <div class="col-sm-12 col-xl-12 col-lg-12">
+
+                                <table class="child-table table-striped">
+                                    <thead>
+                                        <tr class="child-table-row-header">
+                                            <th class="child-table-header" scope="col" style="width:3%;"></th>
+                                            <th class="child-table-header" scope="col" style="width:97%;">Title</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngFor="let checklist of applicationChecklist">
+                                        <tr *ngIf="checklist.approverGroupId == approverGrp.id">
+                                            <td style="padding-left:5px;">
+
+                                                <ng-container *ngIf="loanStatusMapTypeId == 12 || loanStatusMapTypeId == 13; else approverGroupCheck">
+                                                    <dx-check-box [(value)]="checklist.isSubmitted" [disabled]="true"></dx-check-box>
+                                                </ng-container>
+                                                <ng-template #approverGroupCheck>
+                                                    <ng-container *ngIf="approverGrp.approverGroupTypeId == approverGroupTypeId; else defaultCheck">
+                                                        <dx-check-box [(value)]="checklist.isSubmitted" [disabled]="disableItem"></dx-check-box>                                                        
+                                                    </ng-container>
+                                                </ng-template>
+                                                <ng-template #defaultCheck>
+                                                    <div>
+                                                        <dx-check-box [(value)]="checklist.isSubmitted" [disabled]="true"></dx-check-box>                                                        
+                                                    </div>
+                                                </ng-template>
+                                            </td>
+                                            <td style="padding-left:8px;">{{checklist.title}}</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+
+    </form>
+</div>

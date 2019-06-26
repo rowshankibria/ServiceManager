@@ -1,0 +1,752 @@
+@import "~bootstrap/scss/bootstrap";
+@import "~spinkit/scss/spinkit";
+@import "responsive";
+/*@import "./node_modules/ngx-toastr/toastr-bs4-alert";*/
+
+@import "spinner";
+
+body {
+    font-size: 12.5px !important;
+    font-family: 'Helvetica Neue', 'Segoe UI', Helvetica, Verdana, sans-serif;
+}
+
+#spinner {
+    opacity: .6 !important;
+}
+
+.form-control {
+    border-radius: 0;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.form-hover-Cursor {
+    cursor: pointer;
+}
+
+
+/******************* Detail Form Label and Control **************************/
+
+.form-group {
+    text-align: right;
+    margin-bottom: .5rem !important;
+}
+
+p {
+    text-align: left;
+    /*margin-bottom: 0px;*/
+}
+
+@media screen and (max-width: 992px) {
+    .form-group {
+        text-align: left;
+    }
+
+    .dx-toolbar-after {
+        right: 0 !important;
+    }
+}
+
+.fade.in {
+    opacity: 1
+}
+
+.modal-backdrop.in {
+    filter: alpha(opacity=50);
+    opacity: .5;
+}
+
+.modal.in .modal-dialog {
+    -webkit-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    transform: translate(0,0);
+}
+
+
+.toast-top-center {
+    top: 30%;
+    margin: 0 auto;
+    left: 0;
+}
+
+
+/* large window for two column div */
+.div-two-column-left {
+    padding-right: 0px;
+    padding-left: 20px;
+}
+
+.div-two-column-right {
+    padding-left: 5px;
+    padding-right: 20px;
+}
+
+.div-one-column {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* if two column div is designed */
+@media only screen and (max-width: 1024px) {
+
+    .div-two-column-left {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .div-two-column-right {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+
+/* label caption */
+.card-body-caption {
+    padding-right: 0px;
+    padding-top: 7px;
+    /*font-size: 1.0em;*/
+    font-size: 14px;
+}
+
+/* label caption checkbox */
+.card-body-caption-checkbox {
+    padding-right: 0px;
+    font-size: 14px;
+}
+
+/* label caption radiobox */
+.card-body-caption-radioOption {
+    padding-right: 0px;
+    padding-top: 2px;
+    /*font-size: 1.0em;*/
+    font-size: 14px;
+}
+
+
+/* control align */
+.card-body-control-checkbox {
+    text-align: left;
+}
+
+/* control align */
+.card-body-control-radio {
+    text-align: left;
+    padding-top: 5px;
+}
+
+/* label caption */
+@media only screen and (max-width: 1200px) {
+
+    .card-body-caption {
+        padding-right: 0px;
+        padding-top: 7px;
+        /*font-size: 1.0em;*/
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .card-body-caption-checkbox {
+        padding-right: 0px;
+        font-size: 14px;
+        text-align: left;
+    }
+
+    /* label caption radiobox */
+    .card-body-caption-radioOption {
+        padding-right: 0px;
+        padding-top: 2px;
+        /*font-size: 1.0em;*/
+        font-size: 14px;
+        text-align: left;
+    }
+}
+
+.list-page-content-div {
+    padding-top: 5px;
+    padding-left: 5px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 90vh;
+}
+
+.list-page-content-div-tab {
+    padding-top: 45px;
+    padding-left: 5px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 90vh;
+}
+
+.detail-page-content-div {
+    padding-top: 5px;
+    padding-left: 5px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 90vh;
+}
+
+.detail-page-content-div-tab {
+    padding-top: 45px;
+    /*padding-left: 5px;*/
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 90vh;
+}
+
+/* for those page which is in tab page detail */
+/*.tab-detail-page-titlebar {
+    padding-bottom: 45px;
+}*/
+
+/* for those page which is in tab page detail */
+.dx-tabpanel-tabs {
+    padding-bottom: 2px;
+}
+
+
+/******************* Detail Form Label and Control **************************/
+/***********Detail Tab Page Style Start*******************/
+.tab-style-custom {
+    position: fixed;
+    right: 0;
+    left: 200px;
+}
+
+/* detail page tab caption */
+@media only screen and (max-width: 768px) {
+
+    .tab-style-custom {
+        position: fixed;
+        right: 0;
+        left: 0;
+    }
+}
+
+
+/***********Tab Page Style End*******************/
+
+/************ Types And Category Link Page Start *********/
+
+
+$tabPanel-background-color: #281c4a; /*#00437A;*/
+$tabPanel-font-color: #FFFFFF;
+$tabPanel-selected-background-color: #FFFFFF;
+$tabPanel-selected-font-color: #222222;
+
+$tabPanel-border-top-color: rgba(16, 49, 86, 0.8); /*#103156*/
+$tabPanel-border-right-color: #2f95f94f; /*rgba(16, 49, 86, 0.3)*/ /*#103156*/
+$tabPanel-border-bottom-hover-color: #3a295d; /*#103156;*/
+
+$tabPanel-item-border-color: #FFFFFF;
+$tabPanel-item-hover-background-color: #3a295d;/*#103156;*/
+$tabPanel-item-hover-border-color: #FFFFFF;
+
+
+
+.dx-tabpanel {
+    border-top: 1px solid $tabPanel-border-top-color;
+}
+
+.dx-tabpanel .dx-tabs-wrapper {
+    display: block;
+    background-color: $tabPanel-background-color !important;
+    border-bottom: 1px solid $tabPanel-background-color !important;
+    color: $tabPanel-font-color;
+}
+
+.dx-tab.dx-tab-selected {
+    background-color: $tabPanel-selected-background-color;
+    color: $tabPanel-selected-font-color;
+    border: 1px solid $tabPanel-item-border-color !important;
+}
+
+.dx-tab.dx-state-hover {
+    background-color: $tabPanel-item-hover-background-color !important;
+    color: inherit !important;
+    border-bottom: 1px solid $tabPanel-border-bottom-hover-color !important;
+}
+
+.dx-tabpanel .dx-state-focused .dx-multiview-wrapper {
+    border: none !important;
+}
+
+.dx-tabpanel .dx-multiview-wrapper {
+    border: none !important;
+}
+
+.dx-tabs {
+    border: none !important;
+    position: inherit !important;
+}
+
+.dx-tabpanel .dx-tab {
+    width: 80px !important;
+    border-right: 1px solid $tabPanel-border-right-color;
+}
+
+.dx-tab {
+    padding: 5px 10px 5px 10px !important;
+}
+
+
+/************ Types And Category Link Page End *********/
+
+
+/************ Link Page Content Start *************/
+
+.container-link-page {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.container-link-page-configuration {
+    width: 100%;
+    padding-right: 27px;
+    padding-left: 27px;
+    padding-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.link-item-header {
+    font-size: 17px;
+}
+
+.hr-item-separator {
+    border-width: 1px;
+    height: 1px;
+    /*background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));*/
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(177, 173, 173, 0.75), rgba(0, 0, 0, 0));
+    margin-bottom: 0px !important;
+}
+
+.link-item-area {
+    padding: 10px 10px 50px 9px;
+}
+
+.link-item-span {
+    font-size: 11.5px;
+}
+
+.link-item-header-link-color {
+    color: #222222 !important;
+}
+
+/************ Link Page Content End *************/
+
+/************ Detail Page Collapse/Expand Group Start *************/
+
+.card-header {
+    font-size: 15px;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+    border-bottom: none;
+    background-color: transparent;
+}
+
+.card-header:after {
+    font-family: 'FontAwesome';
+    float: left;
+    font-size: 18px;
+    vertical-align: middle;
+    content: "\f106";
+    padding-left: 4px;
+}
+
+
+.card-header.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\f107";
+}
+
+
+.card-title {
+    padding-left: 5px;
+    font-size: 15px;
+}
+
+
+
+.card-header-alternative {
+    font-size: 15px;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+    border-bottom: none;
+    background-color: transparent;
+}
+
+.card-header-alternative:after {
+    font-family: 'FontAwesome';
+    float: left;
+    font-size: 18px;
+    vertical-align: middle;
+    content: "\f107";
+    padding-left: 4px;
+}
+
+
+.card-header-alternative.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\f106";
+}
+
+
+
+
+
+
+
+
+
+
+
+.item-invisible {
+    display: none;
+}
+
+.item-visible {
+    display: flex;
+}
+/************ Detail Page Collapse/Expand Group End *************/
+/************Web site Login Page Start *****************/
+.login-parent-div {
+    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), rgba(0,0,0,0.55) url('assets/img/img2.jpg') no-repeat center;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    text-rendering: optimizeLegibility;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.login-container-div {
+    background-color: rgba(23,19,19, 0.5);
+    border-radius: 30px;
+}
+
+.logo-itm {
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.login-btn-custom {
+    border-radius: 30px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 0px 46px;
+    line-height: 40px;
+}
+
+.login-logo {
+    width: 240px;
+    text-align: center;
+    background-color: rgba(180, 220, 205, 0.7);
+    padding: 0px 10px 0px 10px;
+    border-radius: 10px;
+}
+
+/************Web site Login Page End *****************/
+/*************Scroll bar style Start********************/
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+@media screen and (min-width: 500px) {
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*/
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-track:hover {
+        /*background: blue;*/
+    }
+
+    ::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        background: rgba(46,60,86,0.6);
+        /*-webkit-box-shadow: inset 0 0 6px rgba(109,38,106,0.5);*/
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #2E3C56;
+    }
+}
+/*::-webkit-scrollbar {
+    width: 5px;
+    height: 3px;
+}*/
+/*scrollbar button style for top and bottom*/
+/*::-webkit-scrollbar-button {
+    background-color: #F0F0F0;
+}*/
+/*actual scrollbar style*/
+/*::-webkit-scrollbar-thumb {
+    height: 50px;
+    background-color: #6D266A;
+    border-radius: 3px;
+}*/
+/*scrollbar track style*/
+/*::-webkit-scrollbar-track-piece {
+    background-color: #F0F0F0;
+}*/
+/*actual scrollbar corner style
+::-webkit-scrollbar-corner {
+    background-color: #999;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #999;
+}
+
+::-webkit-resizer {
+    background-color: #666;
+}
+*/
+/***********Scroll bar style End*******************/
+/*************************** Page Tab Start ********************************/
+.tab-item-invisible {
+    display: none;
+}
+
+.tab-item-visible {
+    display: block;
+}
+/**************************** Page Tab End **********************************/
+
+/**************************** Devextreme Control Related Start *******************/
+
+$dx-datagrid-headers-color: #222222;
+$dx-datagrid-headers-background-color: #f5f5f5;
+$dx-datagrid-font-color: #222222;
+
+.dx-dropdownlist-popup-wrapper {
+    height: 100%;
+    z-index: 1510 !important;
+}
+
+.dx-datagrid-header-panel {
+    display: none !important;
+}
+
+.dx-command-select {
+    width: 40px !important;
+    min-width: 40px !important;
+}
+
+.dx-datagrid-headers {
+    color: #959595;
+    font-weight: normal;
+    touch-action: pinch-zoom;
+    /* border-bottom: 1px solid #ddd; */
+    /*border-bottom: none;*/
+}
+
+.dx-datagrid-pager {
+    border-top: 1px solid #ddd;
+}
+
+.dx-datagrid-headers {
+    color: $dx-datagrid-headers-color;
+    background-color: $dx-datagrid-headers-background-color;
+}
+
+.dx-datagrid {
+    color: $dx-datagrid-font-color;
+}
+
+
+/**************************** Devextreme Control Related End *******************/
+
+.btn-primary {
+    color: #fff;
+    background-color: #103156;
+    border-color: #103156;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #103156;
+    border-color: #103156;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #103156;
+    border-color: #103156;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+    color: #9a8d8d;
+    background-color: #E9E9E9;
+    border-color: #E9E9E9;
+}
+
+div.record-picker[_ngcontent-c19]::-webkit-scrollbar-thumb {
+    background: #103156 !important;
+    border: thin solid gray;
+    border-top-right-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+}
+
+div.record-picker[_ngcontent-c19]::-webkit-scrollbar {
+    width: 6px !important;
+}
+
+
+.toast-top-center {
+    top: 45%;
+    margin: 0 auto;
+    left: 0;
+}
+
+/**** Approval Ribbon Start ******/
+
+.box {
+    width: 99.5%;
+    height: 100%;
+    position: relative;
+}
+
+.ribbon {
+    position: absolute;
+    right: -5px;
+    top: -1px;
+    z-index: 1;
+    overflow: hidden;
+    width: 75px;
+    height: 75px;
+    text-align: right;
+}
+
+.ribbon span {
+    font-size: 10px;
+    font-weight: bold;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 20px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    width: 100px;
+    display: block;
+    /*background: #79A70A;*/
+    /*background: linear-gradient(#9BC90D 0%, #79A70A 100%);*/
+    box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 19px;
+    right: -21px;
+}
+
+
+/**** Approval Ribbon End ******/
+
+
+.img-circle {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+
+.img-circle-note {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+
+
+/******************************** Master-Child Entity Child Start **********************************/
+
+.child-table {
+    width: 100%;
+    border: 1px solid #ddd;
+    height: 35px;
+}
+
+.child-table tr{
+    height: 35px;
+}
+
+.child-table-row-header {
+    background-color: #dcdada; /*#F5F5F5;*/
+}
+
+.child-table-header {
+    font-weight: normal;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.child-table-header-right {
+    font-weight: normal;
+    padding-left: 10px;
+    font-size: 14px;
+    text-align: right;
+}
+
+.child-table-header-center {
+    font-weight: normal;
+    padding-left: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.child-table-cell {
+    padding-left: 10px;
+}
+
+.child-table-cell-right {
+    padding-left: 10px;
+    text-align: right;
+}
+
+.child-table-cell-center {
+    padding-left: 10px;
+    text-align: center;
+}
+
+/******************************** Master-Child Entity Child End *************************************/
+
+.dx-datagrid-rowsview .dx-selection.dx-row.dx-column-lines > td,
+.dx-datagrid-rowsview .dx-selection.dx-row:hover.dx-column-lines > td,
+.dx-datagrid-rowsview .dx-selection.dx-row.dx-column-lines > tr > td,
+.dx-datagrid-rowsview .dx-selection.dx-row:hover.dx-column-lines > tr > td {
+    border-left-color: #ddd;
+    border-right-color: #ddd;
+}
+
+.dx-datagrid-rowsview .dx-selection.dx-row:not(.dx-row-lines) > td,
+.dx-datagrid-rowsview .dx-selection.dx-row:hover:not(.dx-row-lines) > td {
+    border-bottom: 1px solid #a4c6ea;
+    border-top: 1px solid #a4c6ea;
+}
+
+.dx-datagrid-rowsview .dx-selection.dx-row > td,
+.dx-datagrid-rowsview .dx-selection.dx-row:hover > td,
+.dx-datagrid-rowsview .dx-selection.dx-row > tr > td,
+.dx-datagrid-rowsview .dx-selection.dx-row:hover > tr > td {
+    background-color: #a4c6ea;
+    color: #333;
+}
+
+.required-mark {
+    padding-left: 4px;
+    color: red;
+}

@@ -1,0 +1,235 @@
+<div class="tab-detail-page-titlebar">
+    <app-titlebar (save)="onSaveClicked($event)" (close)="onCloseClicked()" (saveNew)="onSaveNNewClicked()" (saveClose)="onSaveNCloseClicked()"></app-titlebar>
+    
+</div>
+
+<div [ngClass]="contentClass">
+    <form #userForm="ngForm">
+        <dx-validation-group #formValidation>
+            <div class="row">
+
+                <div class="col-sm-12 col-xl-6 col-lg-6 div-two-column-left">
+                    <div class="card mb-1">
+                        <div class="card-header" data-toggle="collapse" href="#collapseOne">
+                            <a class="card-title">
+                                Sender Information
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="card-body show">
+                            <div class="row">
+                                <div class="col-sm-12 col-xl-12 col-lg-12">
+                                    <div class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Business Profile</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-select-box [disabled]="disabledInUpdateMode" [items]="businessProfileDataSource" [(value)]="formDataSource.businessProfileId"
+                                                           displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                                <dx-validator>
+                                                    <dxi-validation-rule type="required" message="Business Profile is required"></dxi-validation-rule>
+                                                </dx-validator>
+                                            </dx-select-box>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Name</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-box [(value)]="formDataSource.displayName" [valueChangeEvent]="'keyup'">
+                                                <dx-validator>
+                                                    <dxi-validation-rule type="required" message="Name is required"></dxi-validation-rule>
+                                                </dx-validator>
+                                            </dx-text-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Sender Option</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-select-box [items]="senderOptionDataSource" [(value)]="formDataSource.senderOptionId"
+                                                           displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                                <dx-validator>
+                                                    <dxi-validation-rule type="required" message="Sender Option is required"></dxi-validation-rule>
+                                                </dx-validator>
+                                            </dx-select-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Sender Name</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-box [(value)]="formDataSource.senderName" [valueChangeEvent]="'keyup'">
+
+                                            </dx-text-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Sender Email Address</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-box [(value)]="formDataSource.senderId" [valueChangeEvent]="'keyup'">
+                                                <dx-validator>
+                                                    <dxi-validation-rule type="required" message="Sender Email Address is required"></dxi-validation-rule>
+                                                    <dxi-validation-rule type="pattern" pattern="{{emailPattern}}" message="Email is invalid"></dxi-validation-rule>
+                                                </dx-validator>
+                                            </dx-text-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Reply to Email Address</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-box [(value)]="formDataSource.replyToEmailAddress" [valueChangeEvent]="'keyup'">
+                                                <dx-validator>
+                                                    <!--type="pattern" pattern="{{emailPattern}}"-->
+                                                    <dxi-validation-rule type="pattern" pattern="{{emailPattern}}" message="Email is invalid"></dxi-validation-rule>
+                                                </dx-validator>
+                                            </dx-text-box>
+                                             
+                                        </div>
+                                    </div>
+                                    <div class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Send Copy to Email Address</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-box [(value)]="formDataSource.copyToEmailAddress" [valueChangeEvent]="'keyup'">
+                                                <dx-validator>
+                                                    <dxi-validation-rule type="pattern" pattern="{{emailPattern}}" message="Email is invalid"></dxi-validation-rule>
+                                                </dx-validator>
+                                            </dx-text-box>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <div class="col-xl-3 card-body-caption-checkbox">
+                                            <label></label>
+                                        </div>
+                                        <div class="col-xl-9 card-body-control-checkbox">
+                                            <dx-check-box [disabled]="disabledDefaultCheckbox" [(value)]="formDataSource.isDefault" text=" Default"></dx-check-box>
+                                        </div>
+                                    </div>
+
+                                    <!--<div *ngIf="recordId>0 && !formDataSource.isDefault" class="row form-group">
+                                        <div class="col-xl-3 card-body-caption-checkbox">
+                                            <label></label>
+                                        </div>
+                                        <div class="col-xl-9 card-body-control-checkbox">
+                                            <dx-check-box [(value)]="formDataSource.isActive" text=" Active"></dx-check-box>
+                                        </div>
+                                    </div>-->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-xl-6 col-lg-6 div-two-column-right">
+                    <div class="card mb-1">
+                        <div class="card-header" data-toggle="collapse" href="#collapseTwo">
+                            <a class="card-title">
+                                Server Information
+                            </a>
+                        </div>
+                        <div class="row form-group ">
+                            <div class="col-xl-3 card-body-caption">
+                                <label>Authentication Type</label>
+                            </div>
+                            <div class="col-xl-9">
+                                <dx-select-box [items]="authenticationTypeDataSource" [(value)]="formDataSource.authenticationTypeId"
+                                               displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                    <dx-validator>
+                                        <dxi-validation-rule type="required" message="Authentication Type is required"></dxi-validation-rule>
+                                    </dx-validator>
+                                </dx-select-box>
+                            </div>
+                        </div>
+                        <div class="row form-group ">
+                            <div class="col-xl-3 card-body-caption">
+                                <label>Protocol</label>
+                            </div>
+                            <div class="col-xl-9">
+                                <dx-select-box [items]="protocolDataSource" [(value)]="formDataSource.protocolId"
+                                               displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                    <dx-validator>
+                                        <dxi-validation-rule type="required" message="Protocol is required"></dxi-validation-rule>
+                                    </dx-validator>
+                                </dx-select-box>
+                            </div>
+                        </div>
+                        <div class="row form-group ">
+                            <div class="col-xl-3 card-body-caption">
+                                <label>User Name</label>
+                            </div>
+                            <div class="col-xl-9">
+                                <dx-text-box [(value)]="formDataSource.userName" [valueChangeEvent]="'keyup'">
+                                    <dx-validator>
+                                        <dxi-validation-rule type="required" message="User Name is required"></dxi-validation-rule>
+                                    </dx-validator>
+                                </dx-text-box>
+                            </div>
+                        </div>
+
+                        <div class="row form-group ">
+                            <div class="col-xl-3 card-body-caption">
+                                <label>Password</label>
+                            </div>
+                            <div class="col-xl-9">
+                                <dx-text-box mode="password" [(value)]="formDataSource.password" [valueChangeEvent]="'keyup'">
+                                    <dx-validator>
+                                        <dxi-validation-rule  type="required" message="Password is required"></dxi-validation-rule>
+                                    </dx-validator>
+                                </dx-text-box>
+                            </div>
+                        </div>
+
+                        <div class="row form-group ">
+                            <div class="col-xl-3 card-body-caption">
+                                <label>SMTP Server</label>
+                            </div>
+                            <div class="col-xl-9">
+                                <dx-text-box [(value)]="formDataSource.outgoingServer" [valueChangeEvent]="'keyup'">
+                                    <dx-validator>
+                                        <dxi-validation-rule type="required" message="SMTP Server is required"></dxi-validation-rule>
+                                    </dx-validator>
+                                </dx-text-box>
+                            </div>
+                        </div>
+                        <div class="row form-group ">
+                            <div class="col-xl-3 card-body-caption">
+                                <label>SMTP Port</label>
+                            </div>
+                            <div class="col-xl-9">
+                                <dx-text-box [(value)]="formDataSource.outgoingPort" [valueChangeEvent]="'keyup'">
+                                    <dx-validator>
+                                        <dxi-validation-rule type="required" message="SMTP Port is required"></dxi-validation-rule>
+                                    </dx-validator>
+                                </dx-text-box>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-xl-3 card-body-caption-checkbox">
+                                <label></label>
+                            </div>
+                            <div class="col-xl-9 card-body-control-checkbox">
+                                <dx-check-box [(value)]="formDataSource.useSslforOutgoing" text=" Use SSL(SMTP)"></dx-check-box>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </dx-validation-group>
+    </form>
+</div>
+

@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bricelam.EntityFrameworkCore.Pluralizer</name>
+    </assembly>
+    <members>
+        <member name="T:Bricelam.EntityFrameworkCore.Design.EFCorePluralizerServices">
+            <summary>
+            Used to the configure design-time services for this library.
+            </summary>
+        </member>
+        <member name="M:Bricelam.EntityFrameworkCore.Design.EFCorePluralizerServices.ConfigureDesignTimeServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds this library's design-time services to the service collection.
+            </summary>
+            <param name="services">The service collection.</param>
+        </member>
+        <member name="T:Bricelam.EntityFrameworkCore.Design.Pluralizer">
+            <summary>
+            Default pluralization service implementation to be used by Entity Framework. This pluralization service is based on
+            English locale.
+            </summary>
+        </member>
+        <member name="M:Bricelam.EntityFrameworkCore.Design.Pluralizer.#ctor">
+            <summary>
+            Constructs a new instance of default pluralization service used in Entity Framework.
+            </summary>
+        </member>
+        <member name="M:Bricelam.EntityFrameworkCore.Design.Pluralizer.Pluralize(System.String)">
+            <summary>Returns the plural form of the specified word.</summary>
+            <returns>The plural form of the input parameter.</returns>
+            <param name="word">The word to be made plural.</param>
+        </member>
+        <member name="M:Bricelam.EntityFrameworkCore.Design.Pluralizer.Singularize(System.String)">
+            <summary>Returns the singular form of the specified word.</summary>
+            <returns>The singular form of the input parameter.</returns>
+            <param name="word">The word to be made singular.</param>
+        </member>
+    </members>
+</doc>

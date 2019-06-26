@@ -1,0 +1,7 @@
+
+delete from loan.ApprovalEntityMappingChecklist
+delete from loan.ApprovalEntityMapping
+delete from loan.ApprovalProcessStepChecklist
+delete from loan.ApprovalProcessStep
+delete from loan.ApprovalProcess
+delete from loan.LoanTypeApprovalProcess

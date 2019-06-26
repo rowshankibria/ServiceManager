@@ -1,0 +1,25 @@
+
+/deep/ .options {
+  padding: 20px;
+  margin-top: 20px;
+  background-color: rgba(191, 191, 191, 0.15);
+}
+
+/deep/ .caption {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/deep/ .option {
+  margin-top: 10px;
+}
+
+/deep/ .option > span {
+  margin-right: 10px;
+}
+
+/deep/ .option > .dx-selectbox {
+  display: inline-block;
+  vertical-align: middle;
+}
+

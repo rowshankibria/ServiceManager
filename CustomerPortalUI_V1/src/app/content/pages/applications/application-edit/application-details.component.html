@@ -1,0 +1,343 @@
+<m-portlet [options]="{headLarge: true, enableSticky: true}">
+
+		<ng-container mPortletHeadTitle>
+			<div class="m-portlet__head-title">
+				<h3 class="m-portlet__head-text">
+					<!-- {{ getComponentTitle() }} -->
+					<!-- Application Detail -->
+				</h3>
+			</div>
+		</ng-container> 
+		<ng-container mPortletHeadTools>
+			
+				
+			<div class="m-buttons--wrapper">
+				<button type="button" [disabled]="isSubmitted" (click)="validateAndSave()" mat-raised-button color="primary" matTooltip="Save">Save</button>
+				<button type="button" [disabled]="isSubmitted" (click)="validateAndSaveAndSubmit()" mat-raised-button color="primary" matTooltip="Save & Submit">Save & Submit</button>
+				<button type="button" [routerLink]="['/application']" mat-raised-button color="secondary" matTooltip="Cancel">Cancel</button>
+			</div>
+		</ng-container>
+		<ng-container mPortletBody>
+			
+			<form #categoryForm="ngForm">
+				<dx-validation-group #formValidation>
+		
+					<div class="row">
+
+					<div class="col-sm-12 col-xl-12 col-lg-12">
+		
+						<div  [ngClass]="initialClassGroup">
+							<div class="col-xl-2 card-body-caption">
+								<label>Loan Type</label>
+							</div>
+							<div class="col-xl-10">
+								<dx-select-box [items]="loanTypeSelectItems" [searchEnabled]="true" [disabled]="applicationId > 0 ? true : false" [(value)]="applicationDataSource.loanTypeId" displayExpr="name" valueExpr="id" [showClearButton]="true">
+									<dx-validator>
+										<dxi-validation-rule type="required" message="Loan type is required" validationMessageMode='always'></dxi-validation-rule>
+									</dx-validator>
+								</dx-select-box>
+							</div>
+						</div>
+						<div [ngClass]="initialClassGroup">
+							<div class="col-xl-2 card-body-caption">
+								<label>Loan Request Amount</label>
+							</div>
+							<div class="col-xl-10">
+								<dx-number-box [(value)]="applicationDataSource.requestedLoanAmount" [disabled]="isSubmitted" [min]="0" [max]="999999999999999" [showSpinButtons]="true">
+									<dx-validator>
+										<dxi-validation-rule type="required" message="Loan amount is required" validationMessageMode='always'></dxi-validation-rule>
+									</dx-validator>
+								</dx-number-box>
+							</div>
+						</div>
+						<div [ngClass]="initialClassGroup">
+							<div class="col-xl-2 card-body-caption">
+		
+							</div>
+							<div class="col-xl-10">
+								<p style="color:red;">Please select loan type and put loan amount and then save to continue to fill up the application </p>
+							</div>
+						</div>
+					</div>
+		
+					</div>
+
+
+
+					<div class="row">
+						<div class="col-sm-12 col-xl-12 col-lg-12">
+							<div [ngClass]="customFieldClassGroup">
+								<div class="card-header" data-toggle="collapse" href="#collapseOne">
+									<a class="card-title">
+										General Information
+									</a>
+								</div>
+								<div id="collapseOne" class="card-body show">
+									<div class="row form-group ">
+										<div class="col-xl-4 card-body-caption">
+											<label>First Name</label>
+										</div>
+										<div class="col-xl-8">
+		
+											<dx-text-box [(value)]="contactDataSource.firstName" [disabled]="isSubmitted" [valueChangeEvent]="'keyup'">
+		
+											</dx-text-box>
+		
+										</div>
+									</div>
+									<div class="row form-group ">
+										<div class="col-xl-4 card-body-caption">
+											<label>Last Name</label>
+										</div>
+										<div class="col-xl-8">
+		
+											<dx-text-box [(value)]="contactDataSource.lastName" [disabled]="isSubmitted" [valueChangeEvent]="'keyup'">
+		
+											</dx-text-box>
+		
+										</div>
+									</div>
+									<div class="row form-group ">
+										<div class="col-xl-4 card-body-caption">
+											<label>Preferred Name</label>
+										</div>
+										<div class="col-xl-8">
+		
+											<dx-text-box [(value)]="contactDataSource.preferredName" [disabled]="isSubmitted" [valueChangeEvent]="'keyup'">
+		
+											</dx-text-box>
+										</div>
+									</div>
+									<div class="row form-group ">
+										<div class="col-xl-4 card-body-caption">
+											<label>Date Of Birth</label>
+										</div>
+										<div class="col-xl-8">
+											<dx-date-box [(value)]="contactDataSource.dateOfBirth" [disabled]="isSubmitted" [min]="minDate" [max]="maxDate" displayFormat="dd/MM/yyyy"> </dx-date-box>
+										</div>
+									</div>
+									<div class="row form-group ">
+										<div class="col-xl-4 card-body-caption">
+											<label>Gender</label>
+										</div>
+										<div class="col-xl-8">
+		
+											<dx-radio-group [items]="genderSelectItems" [disabled]="isSubmitted" [(value)]="contactDataSource.genderId" displayExpr="name" valueExpr="id" layout="horizontal">
+											</dx-radio-group>
+		
+										</div>
+									</div>
+									<div class="row form-group ">
+										<div class="col-xl-4 card-body-caption">
+											<label>Business Phone</label>
+										</div>
+										<div class="col-xl-8">
+		
+											<dx-text-box [(value)]="contactDataSource.businessPhone" [disabled]="isSubmitted" [valueChangeEvent]="'keyup'">
+		
+											</dx-text-box>
+										</div>
+									</div>
+									<div class="row form-group ">
+										<div class="col-xl-4 card-body-caption">
+											<label>Mobile Phone</label>
+										</div>
+										<div class="col-xl-8">
+		
+											<dx-text-box [(value)]="contactDataSource.mobile" [disabled]="isSubmitted" [valueChangeEvent]="'keyup'">
+		
+											</dx-text-box>
+		
+										</div>
+									</div>
+								</div>
+							</div>
+		
+							<div [ngClass]="customFieldClassGroup">
+								<div class="card-header" data-toggle="collapse" href="#collapseFive">
+									<a class="card-title">
+		
+										Loan Information
+		
+									</a>
+		
+								</div>
+								<div id="collapseFive" class="card-body show">
+									<div class="row form-group ">
+										<div class="col-xl-4 card-body-caption">
+											<label>Application ID</label>
+										</div>
+										<div class="col-xl-8">
+											<dx-text-box [(value)]="applicationDataSource.applicationId" [disabled]="true" [valueChangeEvent]="'keyup'">
+		
+											</dx-text-box>
+		
+		
+										</div>
+									</div>
+									
+									<div class="row form-group ">
+										<div class="col-xl-4 card-body-caption">
+											<label>Loan Type</label>
+										</div>
+										<div class="col-xl-8">
+											<dx-select-box [items]="loanTypeSelectItems" [searchEnabled]="true" [disabled]="applicationId > 0 ? true : false" [(value)]="applicationDataSource.loanTypeId" displayExpr="name" valueExpr="id" [showClearButton]="true">
+												
+											</dx-select-box>
+										</div>
+									</div>
+									<div class="row form-group ">
+										<div class="col-xl-4 card-body-caption">
+											<label>Loan Request Amount</label>
+										</div>
+										<div class="col-xl-8">
+											<dx-number-box [(value)]="applicationDataSource.requestedLoanAmount" [disabled]="applicationId > 0 ? true : false" [min]="0" [max]="999999999999999" [showSpinButtons]="true">
+												
+											</dx-number-box>
+										</div>
+									</div>
+
+									<div class="row form-group ">
+										<div class="col-xl-4 card-body-caption">
+											<label>Branch Name</label>
+										</div>
+										<div class="col-xl-8">
+											<dx-select-box [items]="branchSelectItems" [searchEnabled]="true" [(value)]="applicationDataSource.branchId" displayExpr="name" valueExpr="id" [showClearButton]="true">
+		
+												<!--<dx-validator>
+													<dxi-validation-rule type="required" message="Branch Name is required" validationMessageMode='always'></dxi-validation-rule>
+												</dx-validator>-->
+											</dx-select-box>
+										</div>
+									</div>
+		
+									<div class="row form-group ">
+										<div class="col-xl-4 card-body-caption">
+											<label>Application Status</label>
+										</div>
+										<div class="col-xl-8">
+		
+											<dx-select-box [items]="applicationStatusTypeSelectItems" [searchEnabled]="true" [disabled]="true" [(value)]="applicationDataSource.applicationStatusId" displayExpr="name" valueExpr="id" [showClearButton]="true">
+											</dx-select-box>
+		
+										</div>
+									</div>
+		
+									<div class="row form-group ">
+										<div class="col-xl-4 card-body-caption">
+											<label>Notes</label>
+										</div>
+										<div class="col-xl-8">
+		
+											<dx-text-area [(value)]="applicationDataSource.description" [valueChangeEvent]="'keyup'"></dx-text-area>
+		
+										</div>
+									</div>
+								</div>
+							</div>
+		
+							<div *ngFor="let data of applicationDataSource.customFieldGroup; let i = index;" [ngClass]="customFieldClassGroup">
+								<div class="card-header" data-toggle="collapse" [attr.href]="'#collapse' + i">
+									<a class="card-title">
+										{{ data }}
+									</a>
+								</div>
+								<div id="collapse{{i}}" class="card-body show">
+									<div *ngFor="let dataField of applicationCustomFields">
+										<div *ngIf="dataField.customFieldMaster.groupName == data;" class="row form-group ">
+		
+		
+		
+											<div class="col-xl-4 card-body-caption">
+												<label>{{ dataField.customFieldMaster.caption }}</label>
+											</div>
+											<div class="col-xl-8">
+		
+												<ng-container *ngIf="dataField.customFieldMaster.controlTypeId === 1; else elseif1">
+		
+													<dx-text-box [(value)]="dataField.value" [disabled]="isSubmitted" (onValueChanged)="onCustomFieldvalueChanged($event, dataField)" [valueChangeEvent]="'keyup'">
+		
+													</dx-text-box>
+		
+												</ng-container>
+												<ng-template #elseif1>
+													<ng-container *ngIf="dataField.customFieldMaster.controlTypeId === 2; else elseif2">
+		
+														<dx-select-box [items]="dataField.customFieldMaster.controlSelectedItem" [disabled]="isSubmitted" [searchEnabled]="true" [(value)]="dataField.value" (onValueChanged)="onCustomFieldvalueChanged($event, dataField)" displayExpr="name" valueExpr="id" [showClearButton]="true">
+		
+														</dx-select-box>
+		
+													</ng-container>
+												</ng-template>
+												<ng-template #elseif2>
+													<ng-container *ngIf="dataField.customFieldMaster.controlTypeId === 3; else elseif3">
+		
+														<div style="padding-top:8px;" class="card-body-control-checkbox">
+		
+															<dx-check-box [(value)]="dataField.value" [disabled]="isSubmitted" (onValueChanged)="onCustomFieldvalueChanged($event, dataField)"></dx-check-box>
+		
+														</div>
+		
+													</ng-container>
+												</ng-template>
+		
+												<ng-template #elseif3>
+													<ng-container *ngIf="dataField.customFieldMaster.controlTypeId === 4; else elseif4">
+		
+														<dx-radio-group [items]="dataField.customFieldMaster.controlSelectedItem" [disabled]="isSubmitted" [(value)]="dataField.value" (onValueChanged)="onCustomFieldvalueChanged($event, dataField)"
+																		displayExpr="name" valueExpr="id" layout="horizontal">
+														</dx-radio-group>
+		
+													</ng-container>
+												</ng-template>
+		
+												<ng-template #elseif4>
+													<ng-container *ngIf="dataField.customFieldMaster.controlTypeId === 5; else elseif5">
+		
+														<dx-text-area (onValueChanged)="onCustomFieldvalueChanged($event, dataField)" [disabled]="isSubmitted" [(value)]="dataField.value">
+														</dx-text-area>
+		
+													</ng-container>
+												</ng-template>
+		
+												<ng-template #elseif5>
+		
+													<ng-container *ngIf="dataField.customFieldMaster.controlTypeId === 6; else elseif6">
+		
+														<dx-date-box [(value)]="dataField.value" [disabled]="isSubmitted" (onValueChanged)="onCustomFieldvalueChanged($event, dataField)" displayFormat="dd/MM/yyyy">
+		
+														</dx-date-box>
+		
+													</ng-container>
+		
+												</ng-template>
+		
+												<ng-template #elseif6>
+		
+													<dx-number-box [(value)]="dataField.value" [min]="0" [max]="999999999999999"
+																   (onValueChanged)="onCustomFieldvalueChanged($event, dataField)" [disabled]="isSubmitted" [showSpinButtons]="true">
+													</dx-number-box>
+		
+												</ng-template>
+		
+											</div>
+										</div>
+		
+									</div>
+								</div>
+		
+							</div>
+		
+						</div>
+					</div>
+		
+				</dx-validation-group>
+			</form>
+
+			<div class="form-footer">
+				<!-- <m-spinner-button [options]="spinner" ></m-spinner-button> -->
+			</div>
+
+		</ng-container>
+	</m-portlet>
+	

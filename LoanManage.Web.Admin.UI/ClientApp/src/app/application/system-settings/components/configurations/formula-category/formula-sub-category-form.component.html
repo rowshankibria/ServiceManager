@@ -1,0 +1,94 @@
+<div class="tab-detail-page-titlebar">
+    <app-titlebar style="position:unset!important;" (save)="onSaveClicked($event)" (close)="onCloseClicked($event)" (saveNew)="onSaveNNewClicked($event)" (saveClose)="onSaveNCloseClicked($event)"></app-titlebar>
+</div>
+
+<div [ngClass]="contentClass">
+    <form #formulaSubcategoryForm="ngForm">
+        <dx-validation-group #formValidation>
+            <div class="row">
+                <div class="col-sm-12 col-xl-7 col-lg-12 div-two-column-left">
+                    <div class="card mb-1">
+                        <div class="card-header" data-toggle="collapse" href="#collapse-one">
+                            &nbsp; General Information
+                        </div>
+                        <div class="collapse show" id="collapse-one">
+                            <div class="row card-body">
+                                <div class="col-lg-9 col-xl-9 col-sm-12">
+                                    <div class="row form-group">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Subcategory Name</label>
+                                            <span class="required-mark">*</span>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-box name="name" [(value)]="formulaSubcategory.name" [valueChangeEvent]="'keyup'">
+                                                <dx-validator>
+                                                    <dxi-validation-rule type="required" message="Subcategory Name is required"></dxi-validation-rule>
+                                                </dx-validator>
+                                            </dx-text-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Description</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-area [(value)]="formulaSubcategory.description" [height]="90" [maxLength]="400">
+                                            </dx-text-area>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption-checkbox">
+                                            <label>Active</label>
+                                        </div>
+                                        <div class="col-xl-9 card-body-control-checkbox">
+                                            <dx-check-box [(value)]="formulaSubcategory.isActive"></dx-check-box>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-xl-12 col-lg-12 div-two-column-left">
+                    <div class="card mb-1">
+                        <div class="card-header" data-toggle="collapse" href="#collapseTwo">
+                            <a class="card-title">
+                                Formulas
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="card-body show">
+                            <div class="row ">
+
+                                <dx-data-grid #grdFormulas
+                                              id="grdFormulas"
+                                              [dataSource]="availableHerbDataSource"
+                                              [allowColumnReordering]="true"
+                                              [allowColumnResizing]="true"
+                                              [columnAutoWidth]="true"
+                                              [showColumnLines]="false"
+                                              [showRowLines]="true"
+                                              [showBorders]="true"
+                                              [rowAlternationEnabled]="true"
+                                              keyExpr="id"
+                                              [loadPanel]="true"
+                                              [remoteOperations]="true">
+                                    <dxo-column-chooser [enabled]="false"></dxo-column-chooser>
+                                    <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
+                                    <dxo-filter-row [visible]="true"></dxo-filter-row>
+                                    <dxo-header-filter [visible]="false"></dxo-header-filter>
+                                    <dxo-search-panel [visible]="true" [width]="240"></dxo-search-panel>
+                                    <dxo-column-fixing [enabled]="true"></dxo-column-fixing>                                 
+                                    <dxi-column dataField="name" caption="Formula"></dxi-column>
+                                    <dxi-column dataField="active" caption="Active"></dxi-column>
+                                </dx-data-grid>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </dx-validation-group>
+    </form>
+</div>

@@ -1,0 +1,34 @@
+
+
+<div *ngIf="loanApplicationId>0; else elseBlock">
+    <dx-tab-panel #tabPanel
+                  [dataSource]="tabs"
+                  [selectedIndex]="0">
+        <div *dxTemplate="let item of 'generalInformation'">
+            <app-loan-application [entityModel]="entityModel"></app-loan-application>
+        </div>
+        <!--<div [ngClass]="tabPageServiceStyle" *dxTemplate="let item of 'documents'">
+    </div>-->
+        <!--<div [ngClass]="tabPageServiceStyle" *dxTemplate="let item of 'communications'">
+    </div>-->
+        <div *dxTemplate="let item of 'documents'">
+            <app-fileuploader-form></app-fileuploader-form>
+        </div>
+        <div *dxTemplate="let item of 'user-notes'">
+            <app-user-note></app-user-note>
+        </div>
+        <div *dxTemplate="let item of 'system-notes'">
+            <app-system-note></app-system-note>
+        </div>
+        <div *dxTemplate="let item of 'qa-notes'">
+            <app-qa-note></app-qa-note>
+        </div>
+        <div *dxTemplate="let item of 'checklist'">
+            <app-checklist></app-checklist>
+        </div>
+
+    </dx-tab-panel>
+</div>
+<ng-template #elseBlock>
+    <app-loan-application [entityModel]="entityModel"></app-loan-application>
+</ng-template>

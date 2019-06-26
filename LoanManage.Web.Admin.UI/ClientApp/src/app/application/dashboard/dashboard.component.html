@@ -1,0 +1,115 @@
+<!--<div class="tab-detail-page-titlebar">
+    <app-titlebar style="position:unset!important;" ></app-titlebar>
+</div>-->
+<div style="padding-left:10px; padding-top:20px;" [ngClass]="contentClass">
+
+    <div class="block-content">
+
+        <div class="content-item-not-started">
+            <br />
+            <span style="font-size:16px;">
+                Not Started
+            </span>  <br />
+
+            <span style="font-size:60px;">
+                {{applicationTotal.notStartedValue}}
+            </span>
+        </div>
+
+        <div class="content-item-in-progress">
+            <br />
+            <span style="font-size:16px;">
+                In Progress
+            </span>  <br />
+
+            <span style="font-size:60px;">
+                {{applicationTotal.inProgressValue}}
+            </span>
+
+        </div>
+
+        <div class="content-item-accepted">
+            <br />
+            <span style="font-size:16px;">
+                Accepted
+            </span>  <br />
+
+            <span style="font-size:60px;">
+                {{applicationTotal.acceptedValue}}
+            </span>
+
+
+        </div>
+
+        <div class="content-item-rejected">
+
+            <br />
+            <span style="font-size:16px;">
+                Rejected
+            </span>  <br />
+
+            <span style="font-size:60px;">
+                {{applicationTotal.rejectedValue}}
+            </span>
+
+
+
+        </div>
+
+    </div>
+
+    <div class="block-content-chart">
+
+        <div class="content-item-chart ">
+
+            <dx-pie-chart id="pie"
+                          type="doughnut"
+                          title="Applications Status"
+                          palette="Bright"
+                          [dataSource]="applicationSummary">
+                <dxi-series argumentField="loanStatus">
+                    <dxo-label [visible]="true">
+                        <dxo-connector [visible]="true"></dxo-connector>
+                    </dxo-label>
+                </dxi-series>
+                <!--<dxo-export [enabled]="true"></dxo-export>-->
+                <dxo-legend [margin]="0"
+                            horizontalAlignment="right"
+                            verticalAlignment="top"></dxo-legend>
+                <dxo-tooltip [enabled]="true"
+                             [customizeTooltip]="customizeTooltip">
+                </dxo-tooltip>
+            </dx-pie-chart>
+
+
+        </div>
+
+        <div class="content-item-chart ">
+
+            <dx-pie-chart id="pie1"
+                          type="doughnut"
+                          title="Branchwise Application"
+                          palette="Bright"
+                          [dataSource]="branchSummary">
+                <dxi-series argumentField="branchName">
+                    <dxo-label [visible]="true">
+                        <dxo-connector [visible]="true"></dxo-connector>
+                    </dxo-label>
+                </dxi-series>
+                <!--<dxo-export [enabled]="true"></dxo-export>-->
+                <dxo-legend [margin]="0"
+                            horizontalAlignment="right"
+                            verticalAlignment="top"></dxo-legend>
+                <dxo-tooltip [enabled]="true"
+                             [customizeTooltip]="customizeTooltip">
+                </dxo-tooltip>
+            </dx-pie-chart>
+
+
+        </div>
+
+    </div>
+
+
+
+</div>

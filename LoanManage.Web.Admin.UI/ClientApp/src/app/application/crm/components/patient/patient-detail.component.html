@@ -1,0 +1,24 @@
+
+
+<div *ngIf="contactId>0; else elseBlock">
+    <dx-tab-panel #tabPanel
+                  [dataSource]="tabs"
+                  [selectedIndex]="0">
+        <div *dxTemplate="let item of 'generalInformation'">
+            <app-patient-form [entityModel]="entityModel"></app-patient-form>
+        </div>
+        <div [ngClass]="tabPageServiceStyle" *dxTemplate="let item of 'medicalRecords'">
+        </div>
+        <div [ngClass]="tabPageServiceStyle" *dxTemplate="let item of 'addresses'">
+        </div>
+        <div [ngClass]="tabPageServiceStyle" *dxTemplate="let item of 'documents'">
+        </div>
+        <div [ngClass]="tabPageServiceStyle" *dxTemplate="let item of 'communications'">
+        </div>
+        <div [ngClass]="tabPageServiceStyle" *dxTemplate="let item of 'compliances'">
+        </div>
+    </dx-tab-panel>
+</div>
+<ng-template #elseBlock>
+    <app-patient-form [entityModel]="entityModel"></app-patient-form>
+</ng-template>

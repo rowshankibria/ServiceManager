@@ -1,0 +1,1358 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LoanManager.Api</name>
+    </assembly>
+    <members>
+        <member name="T:LoanManager.Api.ApiDataMappingProfile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LoanManager.Api.ApiDataMappingProfile.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:LoanManager.Api.ApiServiceMappingProfile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LoanManager.Api.ApiServiceMappingProfile.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ApplicationMenuController.GetApplicationMenu">
+            <summary>
+            get application menu
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ApplicationPageController.GetApplicationListPageByRoutingUrl(System.String)">
+            <summary>
+            get application page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ApplicationPageController.GetApplicationListPageByName(System.String)">
+            <summary>
+            get application page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:LoanManager.Api.Controllers.ApprovalProcessController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ApprovalProcessController.#ctor(Microsoft.Extensions.Logging.ILogger{LoanManager.Api.Controllers.ApprovalProcessController},LoanManager.ApplicationService.IApprovalProcessService,LoanManager.ApplicationService.IBusinessCategoryService,LoanManager.Shared.ILoggedInUserService)">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+            <param name="approvalProcessService"></param>
+            <param name="businessCategoryService"></param>
+            <param name="loggedInUserService"></param>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ApprovalProcessController.GetDevexApprovalProcessesAsync(LoanManager.Api.Providers.DataSourceLoadOptions)">
+            <summary>
+            Get Contacts Async
+            </summary>
+            <param name="loadOptions">Dev expresss data model</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ApprovalProcessController.GetApprovalProcessAsync(System.Int64)">
+            <summary>
+            Get Contact Async
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ApprovalProcessController.CreateApprovalProcess(LoanManager.ApplicationService.Models.ApprovalProcessModel)">
+            <summary>
+            Create contact
+            </summary>
+            <param name="loanType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ApprovalProcessController.CreateApprovalProcessStep(LoanManager.ApplicationService.Models.ApprovalProcessModel)">
+            <summary>
+            Create contact
+            </summary>
+            <param name="loanType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ApprovalProcessController.UpdateApprovalProcess(LoanManager.ApplicationService.Models.ApprovalProcessModel)">
+            <summary>
+            update 
+            </summary>
+            <param name="id"></param>
+            <param name="loanType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ApprovalProcessController.DeleteApprovalProcessAsync(System.Int64)">
+            <summary>
+            delete contacts by id list
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ApprovalProcessController.DeleteApprovalProcessesAsync(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            delete contacts by id list
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ApprovalProcessController.GetApprovalProcessList(System.Int64,LoanManager.Api.Providers.DataSourceLoadOptions)">
+            <summary>
+            get type and category list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ApprovalProcessController.MoveUpStepsAsync(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ApprovalProcessController.MoveDownStepsAsync(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LoanManager.Api.Controllers.ApproverGroupController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ApproverGroupController.#ctor(Microsoft.Extensions.Logging.ILogger{LoanManager.Api.Controllers.ApproverGroupController},LoanManager.ApplicationService.IApproverGroupService,LoanManager.ApplicationService.IBusinessCategoryService,LoanManager.Shared.ILoggedInUserService)">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+            <param name="approverGroupService"></param>
+            <param name="businessCategoryService"></param>
+            <param name="loggedInUserService"></param>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ApproverGroupController.GetDevexApproverGroupsAsync(LoanManager.Api.Providers.DataSourceLoadOptions)">
+            <summary>
+            Get Contacts Async
+            </summary>
+            <param name="loadOptions">Dev expresss data model</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ApproverGroupController.GetApproverGroupAsync(System.Int64)">
+            <summary>
+            Get Contact Async
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ApproverGroupController.CreateApproverGroup(LoanManager.ApplicationService.Models.ApproverGroupModel)">
+            <summary>
+            Create contact
+            </summary>
+            <param name="loanType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ApproverGroupController.UpdateApproverGroup(LoanManager.ApplicationService.Models.ApproverGroupModel)">
+            <summary>
+            update 
+            </summary>
+            <param name="id"></param>
+            <param name="loanType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ApproverGroupController.DeleteApproverGroupAsync(System.Int64)">
+            <summary>
+            delete contacts by id list
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ApproverGroupController.DeleteLoanTypesAsync(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            delete contacts by id list
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ApproverGroupController.GetApproverMemberByEntityTypeAsync(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="entityTypeId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LoanManager.Api.Controllers.BranchController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.BranchController.#ctor(Microsoft.Extensions.Logging.ILogger{LoanManager.Api.Controllers.BranchController},LoanManager.ApplicationService.IBranchService,LoanManager.ApplicationService.ICompanyService,LoanManager.Shared.ILoggedInUserService)">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+            <param name="branchService"></param>
+            <param name="companyService"></param>
+            <param name="loggedInUserService"></param>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.BranchController.GetDevexLoanTypesAsync(LoanManager.Api.Providers.DataSourceLoadOptions)">
+            <summary>
+            Get Contacts Async
+            </summary>
+            <param name="loadOptions">Dev expresss data model</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.BranchController.GetBranchAsync(System.Int64)">
+            <summary>
+            Get Contact Async
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.BranchController.CreateBranch(LoanManager.ApplicationService.Models.BranchModel)">
+            <summary>
+            Create contact
+            </summary>
+            <param name="branchModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.BranchController.UpdateBranch(LoanManager.ApplicationService.Models.BranchModel)">
+            <summary>
+            update contact
+            </summary>
+            <param name="id"></param>
+            <param name="loanType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.BranchController.DeleteBranchAsync(System.Int64)">
+            <summary>
+            delete contacts by id list
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.BranchController.DeleteBranchesAsync(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            delete contacts by id list
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LoanManager.Api.Controllers.BusinessProfileController">
+            <summary>
+            BusinessProfile Controller
+            </summary>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.BusinessProfileController.#ctor(Microsoft.Extensions.Logging.ILogger{LoanManager.Api.Controllers.BusinessProfileController},LoanManager.ApplicationService.IBusinessProfileService,LoanManager.ApplicationService.ISharedService,LoanManager.Shared.ILoggedInUserService,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Constructor BusinessProfileController 
+            </summary>
+            <param name="logger"></param>
+            <param name="businessProfileService"></param>
+            <param name="loggedInUserService"></param>
+            <param name="hostingEnvironment"></param>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.BusinessProfileController.GetBusinessProfilesAsync(LoanManager.Api.Providers.DataSourceLoadOptions)">
+            <summary>
+            Get Business Profile Async
+            </summary>
+            <param name="loadOptions">Dev expresss data model</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.BusinessProfileController.GetBusinessProfileDetailsAsync(System.Int32)">
+            <summary>
+            Get Business Profile Details Async
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.BusinessProfileController.GetBusinessProfileAsync(System.Int32)">
+            <summary>
+            Get Business Profile Async
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.BusinessProfileController.CreateBusinessProfileCreate(LoanManager.ApplicationService.Models.BusinessProfileModel)">
+            <summary>
+            Update security configuration
+            </summary>
+            <param name="businessProfile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.BusinessProfileController.UpdateBusinessProfileCreate(System.Int32,LoanManager.ApplicationService.Models.BusinessProfileModel)">
+            <summary>
+            Update security configuration
+            </summary>
+            <param name="id"></param>
+            <param name="businessProfile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.BusinessProfileController.DeleteBusinessProfileAsync(System.Int32)">
+            <summary>
+            delete business profile
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.BusinessProfileController.DeleteBusinessProfilesAsync(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            delete business profile
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LoanManager.Api.Controllers.ChecklistTypeController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ChecklistTypeController.#ctor(Microsoft.Extensions.Logging.ILogger{LoanManager.Api.Controllers.ChecklistTypeController},LoanManager.ApplicationService.IChecklistTypeService,LoanManager.Shared.ILoggedInUserService)">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+            <param name="checklistTypeService"></param>
+            <param name="loggedInUserService"></param>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ChecklistTypeController.GetChecklistTypesAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ChecklistTypeController.GetDevexChecklistTypesAsync(LoanManager.Api.Providers.DataSourceLoadOptions)">
+            <summary>
+            Get Contacts Async
+            </summary>
+            <param name="loadOptions">Dev expresss data model</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ChecklistTypeController.GetLoanTypeAsync(System.Int64)">
+            <summary>
+            Get Contact Async
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ChecklistTypeController.CreateChecklistType(LoanManager.ApplicationService.Models.DocumentChecklistModel)">
+            <summary>
+            Create contact
+            </summary>
+            <param name="checklistType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ChecklistTypeController.UpdateLoanType(LoanManager.ApplicationService.Models.DocumentChecklistModel)">
+            <summary>
+            update contact
+            </summary>
+            <param name="id"></param>
+            <param name="checklistType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ChecklistTypeController.DeleteChecklistTypeAsync(System.Int64)">
+            <summary>
+            delete contacts by id list
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ChecklistTypeController.DeleteChecklistTypesAsync(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            delete contacts by id list
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LoanManager.Api.Controllers.CompanyController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.CompanyController.GetCompaniesAsync(LoanManager.Api.Providers.DataSourceLoadOptions)">
+            <summary>
+            Get all company data
+            </summary>
+            <param name="loadOptions">Dev express data model</param>
+            <returns>Devexpress data grid model</returns>
+            <remarks>Awesomeness!</remarks>
+            <response code="200">Product created</response>
+            <response code="400">Product has missing/invalid values</response>
+            <response code="500">Oops! Can't create your product right now</response>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.CompanyController.GetCompanySelectTtemsAsync(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="businessProfileId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.CompanyController.CreateCompanyAsync(LoanManager.ApplicationService.Models.CompanyModel)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.CompanyController.UpdateCompanyAsync(System.Int64,LoanManager.ApplicationService.Models.CompanyModel)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.CompanyController.DeleteCompanyAsync(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.CompanyController.DeleteCompaniesAsync(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.CompanyController.GetCompanyDetailsTabAsync(System.Int64)">
+            <summary>
+            Get Contact Details Tab Async
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LoanManager.Api.Controllers.ContactController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ContactController.#ctor(Microsoft.Extensions.Logging.ILogger{LoanManager.Api.Controllers.ContactController},LoanManager.ApplicationService.IContactService,LoanManager.ApplicationService.ICustomCategoryService,LoanManager.ApplicationService.ISharedService,LoanManager.Shared.ILoggedInUserService)">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+            <param name="contactService"></param>
+            <param name="customCategoryService"></param>
+            <param name="sharedService"></param>
+            <param name="loggedInUserService"></param>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ContactController.GetContactsAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ContactController.GetDevContactsAsync(LoanManager.Api.Providers.DataSourceLoadOptions)">
+            <summary>
+            Get Contacts Async
+            </summary>
+            <param name="loadOptions">Dev expresss data model</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ContactController.GetContactAsync(System.Int64)">
+            <summary>
+            Get Contact Async
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ContactController.GetContactByIdAsync(System.Int64)">
+            <summary>
+            Get Contact Async
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ContactController.CreateContact(LoanManager.ApplicationService.Models.ContactModel)">
+            <summary>
+            Create contact
+            </summary>
+            <param name="contact"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ContactController.UpdateContact(LoanManager.ApplicationService.Models.ContactModel)">
+            <summary>
+            update contact
+            </summary>
+            <param name="id"></param>
+            <param name="contact"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ContactController.DeleteContactAsync(System.Int64)">
+            <summary>
+            delete contacts by id list
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.ContactController.DeleteContactsAsync(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            delete contacts by id list
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LoanManager.Api.Controllers.CustomCategoryController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:LoanManager.Api.Controllers.EmployeeController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.EmployeeController.#ctor(Microsoft.Extensions.Logging.ILogger{LoanManager.Api.Controllers.EmployeeController},LoanManager.ApplicationService.IEmployeeService,LoanManager.ApplicationService.IBusinessProfileService,LoanManager.ApplicationService.ICustomCategoryService,LoanManager.ApplicationService.IBusinessCategoryService,LoanManager.ApplicationService.ISharedService,LoanManager.Shared.ILoggedInUserService)">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+            <param name="employeeService"></param>
+            <param name="businessProfileService"></param>
+            <param name="customCategoryService"></param>
+            <param name="businessCategoryService"></param>
+            <param name="loggedInUserService"></param>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.EmployeeController.GetEmployeeListAsync(LoanManager.Api.Providers.DataSourceLoadOptions)">
+            <summary>
+            GetEmployeeListAsync
+            </summary>
+            <param name="loadOptions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.EmployeeController.GetEmployeePageTabsAsync(System.Int32)">
+            <summary>
+            et-employee-page-tabs
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.EmployeeController.GetEmployeeByIdAsync(System.Int32)">
+            <summary>
+            get-employee-ById
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.EmployeeController.CreateEmployee(LoanManager.ApplicationService.Models.EmployeeModel)">
+            <summary>
+            create-employee
+            </summary>
+            <param name="employee"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.EmployeeController.UpdateEmployee(System.Int64,LoanManager.ApplicationService.Models.EmployeeModel)">
+            <summary>
+            update-employee
+            </summary>
+            <param name="id"></param>
+            <param name="employee"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.EmployeeController.DeleteEmployee(System.Int64)">
+            <summary>
+            Delete Employee
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.FileUploadController.#ctor(Microsoft.Extensions.Logging.ILogger{LoanManager.Api.Controllers.FileUploadController},LoanManager.Shared.ILoggedInUserService,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+            <param name="loggedInUserService"></param>
+            <param name="hostingEnvironment"></param>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.FileUploadController.UploadPhoto">
+            <summary>
+            get configuration menu
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.FileUploadController.UploadFile">
+            <summary>
+            Upload File
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:LoanManager.Api.Controllers.LoanApplicationController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.#ctor(Microsoft.Extensions.Logging.ILogger{LoanManager.Api.Controllers.LoanApplicationController},LoanManager.Data.IStoredProcedureRepository,LoanManager.ApplicationService.IContactService,LoanManager.ApplicationService.ILoanApplicationService,LoanManager.ApplicationService.ICustomCategoryService,LoanManager.ApplicationService.ISharedService,LoanManager.Shared.ILoggedInUserService,LoanManager.ApplicationService.IApproverGroupService)">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+            <param name="contactService"></param>
+            <param name="loanApplicationService"></param>
+            <param name="customCategoryService"></param>
+            <param name="sharedService"></param>
+            <param name="loggedInUserService"></param>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.GetLoanApplicationByContactAsync(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.GetDevexLoanApplicationsAsync(LoanManager.Api.Providers.DataSourceLoadOptions)">
+            <summary>
+            Get applications Async
+            </summary>
+            <param name="loadOptions">Dev expresss data model</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.GetDevexSubmitLoanApplicationsAsync(LoanManager.Api.Providers.DataSourceLoadOptions)">
+            <summary>
+            Get applications Async
+            </summary>
+            <param name="loadOptions">Dev expresss data model</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.GetApplicationDetailAsync(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.GetApplicationDetailForAdminAsync(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.GetApplicationDetailTabsAsync(System.Int64)">
+            <summary>
+            Get Loan Application Detail Tabs
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.GetApplicationChecklistAsync(System.Int64)">
+            <summary>
+            Get Loan Application Detail Tabs
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.GetApplicationUserNotelistAsync(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.GetApplicationSystemNotelistAsync(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.GetApplicationQANotelistAsync(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.CreateApplication(LoanManager.ApplicationService.Models.LoanApplicationModel)">
+            <summary>
+            
+            </summary>
+            <param name="application"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.UpdateApplication(LoanManager.ApplicationService.Models.LoanApplicationModel)">
+            <summary>
+            
+            </summary>
+            <param name="application"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.UpdateChecklist(System.Collections.Generic.List{LoanManager.Data.Models.ApprovalEntityMappingChecklist})">
+            <summary>
+            
+            </summary>
+            <param name="application"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.UpdateUserGeneratedNotelist(System.Collections.Generic.List{LoanManager.ApplicationService.Models.NoteModel})">
+            <summary>
+            
+            </summary>
+            <param name="application"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.UpdateSystemGeneratedNotelist(System.Collections.Generic.List{LoanManager.ApplicationService.Models.NoteModel})">
+            <summary>
+            
+            </summary>
+            <param name="application"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.UpdateQANotelist(System.Collections.Generic.List{LoanManager.ApplicationService.Models.NoteModel})">
+            <summary>
+            
+            </summary>
+            <param name="application"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.MappingApplication(LoanManager.ApplicationService.Models.LoanApplicationModel)">
+            <summary>
+            
+            </summary>
+            <param name="application"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.AcceptApplication(System.Int64,System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="application"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.RejectApplication(System.Int64,System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="application"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.SubmitToCreditAdministrator(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="application"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.DeleteApplicationAsync(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.DeleteApplicationNoteAsync(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.DeleteApplicationDocumentAsync(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.DeleteApplicationsAsync(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.GetDashboardAsync">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.UploadApplicationDocument(System.Int64,System.Collections.Generic.List{LoanManager.ApplicationService.Models.AttachedFileModel})">
+            <summary>
+            
+            </summary>
+            <param name="entityTypeId"></param>
+            <param name="entityId"></param>
+            <param name="models"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.GetApplicationDocumentlistAsync(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.GetApplicationDocumentCategorylistAsync(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanApplicationController.DownloadFileByIdAsync(System.Int64)">
+            <summary>
+            Download File By Id Async
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LoanManager.Api.Controllers.LoanTypeController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanTypeController.#ctor(Microsoft.Extensions.Logging.ILogger{LoanManager.Api.Controllers.LoanTypeController},LoanManager.ApplicationService.ILoanTypeService,LoanManager.ApplicationService.ICustomCategoryService,LoanManager.ApplicationService.IBusinessCategoryService,LoanManager.Shared.ILoggedInUserService)">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+            <param name="loanTypeService"></param>
+            <param name="customCategoryService"></param>
+            <param name="businessCategoryService"></param>
+            <param name="loggedInUserService"></param>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanTypeController.GetLoanTypesAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanTypeController.GetDevexLoanTypesAsync(LoanManager.Api.Providers.DataSourceLoadOptions)">
+            <summary>
+            Get Contacts Async
+            </summary>
+            <param name="loadOptions">Dev expresss data model</param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanTypeController.GetDevexLaonTypeCustomFieldsAsync(System.Int64,LoanManager.Api.Providers.DataSourceLoadOptions)">
+            <summary>
+            
+            </summary>
+            <param name="loanTypeId"></param>
+            <param name="loadOptions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanTypeController.GetLoanTypeAsync(System.Int64)">
+            <summary>
+            Get Contact Async
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanTypeController.GetCustomFieldsByLoanTypeAsync(System.Int64)">
+            <summary>
+            Get Contact Async
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanTypeController.GetCustomFieldByIdAsync(System.Int64)">
+            <summary>
+            Get custom field by id Async
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanTypeController.CreateLoanType(LoanManager.ApplicationService.Models.LoanTypeModel)">
+            <summary>
+            Create contact
+            </summary>
+            <param name="loanType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanTypeController.UpdateLoanType(LoanManager.ApplicationService.Models.LoanTypeModel)">
+            <summary>
+            update contact
+            </summary>
+            <param name="id"></param>
+            <param name="loanType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanTypeController.DeleteLoanTypeAsync(System.Int64)">
+            <summary>
+            delete contacts by id list
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanTypeController.DeleteLoanTypesAsync(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            delete contacts by id list
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanTypeController.CreateLoanTypeCustomField(LoanManager.ApplicationService.Models.LoanTypeModel)">
+            <summary>
+            Create contact
+            </summary>
+            <param name="loanType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanTypeController.UpdateCustomFieldByLoanModel(LoanManager.ApplicationService.Models.LoanTypeModel)">
+            <summary>
+            
+            </summary>
+            <param name="loanType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanTypeController.UpdateGroupOrFieldOrder(System.Int64,System.String,System.Int64,System.Boolean,System.Boolean)">
+            <summary>
+            Update Group or Field Order
+            </summary>
+            <param name="loanTypeId"></param>
+            <param name="groupName"></param>
+            <param name="controlId"></param>
+            <param name="isDown"></param>
+            <param name="isGroupSort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanTypeController.UpdateGroupByLoanModel(LoanManager.ApplicationService.Models.LoanTypeModel)">
+            <summary>
+            
+            </summary>
+            <param name="loanType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.LoanTypeController.DeleteLoanTypeCustomFieldDetailAsync(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.UserController.#ctor(Microsoft.Extensions.Logging.ILogger{LoanManager.Api.Controllers.UserController},LoanManager.ApplicationService.IUserService,LoanManager.ApplicationService.ICustomCategoryService,LoanManager.ApplicationService.ISharedService,Microsoft.AspNetCore.Hosting.IHostingEnvironment,LoanManager.ApplicationService.IRoleService,LoanManager.Shared.ILoggedInUserService,LoanManager.ApplicationService.IContactService)">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+            <param name="userService"></param>
+            <param name="customCategoryService"></param>
+            <param name="sharedService"></param>
+            <param name="hostingEnvironment"></param>
+            <param name="roleService"></param>
+            <param name="contactService"></param>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.UserController.GetUserList">
+            <summary>
+            get type and category list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.UserController.GetActiveUserList(LoanManager.Api.Providers.DataSourceLoadOptions)">
+            <summary>
+            get type and category list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.UserController.GetUserDetailAsync(System.Int64)">
+            <summary>
+            Get user detail by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.UserController.GetEntityOnUserTypeUsersAsync(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.UserController.GetContactDetailForUserCreationAsync(System.Int32)">
+            <summary>
+            get contact detail for user creation
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.UserController.SaveUserDetail(LoanManager.ApplicationService.Models.UserModel)">
+            <summary>
+            insert user information
+            </summary>        
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.UserController.RegisterUser(LoanManager.Api.Models.UserRegistration)">
+            <summary>
+            Register new User
+            </summary>        
+            <param name="userRegistrationModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.UserController.UpdateUserDetail(System.Int64,LoanManager.ApplicationService.Models.UserModel)">
+            <summary>
+            Update user information
+            </summary>
+            <param name="id"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.UserController.UploadUserPhoto">
+            <summary>
+            get configuration menu
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.UserController.DeleteUserAsync(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Api.Controllers.UserController.DeleteUsersAsync(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="P:LoanManager.Api.Models.ApplicationChecklistViewModel.LoanApplicationModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.ApplicationChecklistViewModel.ApplicationChecklist">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.ApplicationChecklistViewModel.ApproverGroupList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.ApprovalProcessViewModel.ApprovalProcessModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.ApprovalProcessViewModel.ApproverGroupSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.ApprovalProcessViewModel.CheckListSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.ApproverGroupViewModel.ApproverGroupModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.ApproverGroupViewModel.ApproverGroupTypeSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.BranchViewModel.BranchModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.BranchViewModel.RegionSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.ChecklistTypeViewModel.DocumentChecklistModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:LoanManager.Api.Models.CompanyViewModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:LoanManager.Api.Models.ContactViewModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.ContactViewModel.ContactModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.ContactViewModel.BusinessProfileSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.ContactViewModel.CompanySelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.ContactViewModel.TitleSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.ContactViewModel.PositionSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.ContactViewModel.TimezoneSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.ContactViewModel.SkillsSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.ContactViewModel.ImTypeSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.ContactViewModel.GenderSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.ContactViewModel.PreferredContactMethodSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.ContactViewModel.PreferredPhoneTypeSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.LoanApplicationViewModel.LoanApplicationModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.LoanApplicationViewModel.CompanySelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.LoanApplicationViewModel.TitleSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.LoanApplicationViewModel.PositionSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.LoanApplicationViewModel.TimezoneSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.LoanApplicationViewModel.SkillsSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.LoanApplicationViewModel.ImTypeSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.LoanApplicationViewModel.GenderSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.LoanApplicationViewModel.PreferredContactMethodSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.LoanApplicationViewModel.PreferredPhoneTypeSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.LoanApplicationViewModel.ApplicationStatusTypeSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.LoanApplicationViewModel.LoanTypeSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.LoanApplicationViewModel.BranchSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.LoanApplicationViewModel.EmployeeSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.LoanApplicationViewModel.CurrentAssigneeSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.LoanApplicationViewModel.NoteLogsCurrentAssignee">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.LoanTypeViewModel.LoanTypeModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.LoanTypeViewModel.CustomFieldControlTypeSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.LoanTypeViewModel.ApprovalProcessTypeSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.LoanTypeViewModel.CustomFieldGroupSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.LoanTypeViewModel.DocumentCategoryTypeSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.NoteViewModel.NoteList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.NoteViewModel.LoanApplicationModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.TabPageViewModel.TabItems">
+             <summary>
+             
+             </summary>
+            public BusinessProfileModel BusinessProfileModel { get; set; }
+        </member>
+        <member name="P:LoanManager.Api.Models.UserViewModel.User">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.UserViewModel.BusinessProfileSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.UserViewModel.TimeZoneSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.UserViewModel.AuthenticationTypeSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.UserViewModel.SecurityPolicySelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.UserViewModel.TitleSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.UserViewModel.UserTypeSelectItems">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.UserViewModel.UserRoleSelectItems">
+            <summary>
+            get/set User Role Items
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.UserViewModel.UserRightSelectItems">
+            <summary>
+            get/set User Right Items
+            </summary>
+        </member>
+        <member name="P:LoanManager.Api.Models.UserViewModel.IsSystemAdmin">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Itm.Api.Controllers.ConfigurationMenuController">
+            <summary>
+            ConfigurationMenuController controller. this api is liable to provide configuration related api
+            </summary>
+        </member>
+        <member name="M:Itm.Api.Controllers.ConfigurationMenuController.GetConfigurationMenu">
+            <summary>
+            get configuration menu
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Itm.Api.Controllers.RoleController.DeleteRoleAsync(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Itm.Api.Controllers.RoleController.DeleteRolesAsync(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Itm.Api.Controllers.RoleController.GetUserRoleList(System.Int64,LoanManager.Api.Providers.DataSourceLoadOptions)">
+            <summary>
+            get type and category list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Itm.Api.Controllers.RoleController.GetUserPermissionList(System.Int64)">
+            <summary>
+            get type and category list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Itm.Api.Controllers.RoleController.GetRightListByRoleList(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            get type and category list
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

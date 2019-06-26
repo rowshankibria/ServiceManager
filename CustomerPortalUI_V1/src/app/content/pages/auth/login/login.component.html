@@ -1,0 +1,59 @@
+<div class="page-single">
+	<div class="container">
+		<div class="row">
+			<div class="col col-login mx-auto">
+				<div class="text-center mb-6">
+					<!--
+						<img src="./assets/brand/tabler.svg" class="h-6" alt="">
+					-->
+				</div>
+				<form class="m-login__form m-form card" name="form" (ngSubmit)="f.form.valid && submit()" #f="ngForm" novalidate>
+					<div class="card-body p-6">
+						<div class="card-title">
+							<h5 translate="AUTH.LOGIN.TITLE">Login to your account</h5>							
+						</div>
+						<div class="form-group">
+							<label class="form-label">Email address</label>
+							<input
+								type="email"
+								class="form-control"
+								type="email" name="email" placeholder="Email address" autocomplete="off"
+				   			[(ngModel)]="model.email" #email="ngModel" email="true" required
+							/>
+						</div>
+						<div class="form-group">
+							<label class="form-label" style="width: 100%;">
+								<span style="float: left;">Password</span>
+								<a  style="float: right;"
+									href="javascript:;" 
+									(click)="forgotPasswordPage($event)"
+									class="m-link float-right">
+									<span translate="AUTH.GENERAL.FORGOT_BUTTON">Forgot Password?</span>
+								</a>
+							</label>
+							<input
+								type="password"
+								class="form-control"
+								minlength="4" type="password" name="password" placeholder="Password" autocomplete="off"
+				   				[(ngModel)]="model.password" #password="ngModel" required
+							/>
+						</div>
+						<div class="form-group">
+							<label class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input" style="float: left;"/>
+								<span class="custom-control-label">Remember me</span>
+							</label>
+						</div>
+						<div class="form-footer">
+							<m-spinner-button [options]="spinner" (click)="submit()">{{'AUTH.LOGIN.BUTTON' | translate}}</m-spinner-button>
+							<div class="div-register" style="float: right; padding-top: 10px;">
+								<span translate="AUTH.GENERAL.NO_ACCOUNT" style="padding-right: 5px;">Don't have an account?</span>
+								<a href="javascript:;" (click)="register($event)" class="m-link m--font-danger" translate="AUTH.GENERAL.SIGNUP_BUTTON">Sign Up</a>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

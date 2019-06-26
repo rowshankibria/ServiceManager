@@ -1,0 +1,1 @@
+export { ApplicationService } from './applications.service'; // You have to comment this, when your real back-end is done

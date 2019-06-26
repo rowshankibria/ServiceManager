@@ -1,0 +1,617 @@
+<div class="tab-detail-page-titlebar">
+    <app-titlebar style="position:unset!important;" (save)="onSaveClicked($event)" (close)="onCloseClicked($event)" (saveNew)="onSaveNNewClicked($event)" [HideSaveAndClose]="disableItem" [HideSave]="disableItem" (saveClose)="onSaveNCloseClicked($event)"></app-titlebar>
+</div>
+<div [ngClass]="contentClass" style="padding-top:0px!important;">
+    <form #categoryForm="ngForm">
+        <dx-validation-group #formValidation>
+
+            <div *ngIf="applicationId>0" class="box">
+                <div class="ribbon">
+                    <span class="span1">{{approvalText}} </span>
+                </div>
+            </div>
+            <div *ngIf="applicationId>0" class="row">
+                <div class="col-sm-12 col-xl-12 col-lg-12">
+                    <div class="row form-group float-right" style="padding-right:120px;">
+                        <div style="width:100%;">
+                            <table>
+                                <tr>
+                                    <td style="width: 115px;">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    Approval Status:
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td style="padding-left: 5px;">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <div style="width: 20px; height: 20px; border-radius: 50%; background-color: #FE7510;"></div>
+                                                </td>
+                                                <td style="padding-left: 2px;">
+                                                    Not Started
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td style="padding-left: 10px;">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <div style="width: 20px; height: 20px; border-radius: 50%; background-color: #AA17B0;"></div>
+                                                </td>
+                                                <td style="padding-left: 2px;">
+                                                    In Progress
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <!--<td style="padding-left: 10px;">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <div style="width: 20px; height: 20px; border-radius: 50%; background-color: #3F8BFA;"></div>
+                                                </td>
+                                                <td style="padding-left: 2px;">
+                                                    Review
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>-->
+                                    <td style="padding-left: 10px;">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <div style="width: 20px; height: 20px; border-radius: 50%; background-color: #76B007; "></div>
+                                                </td>
+                                                <td style="padding-left: 2px;">
+                                                    Accepted
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td style="padding-left: 10px;">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <div style="width: 20px; height: 20px; border-radius: 50%; background-color: #FF0000; "></div>
+                                                </td>
+                                                <td style="padding-left: 2px;">
+                                                    Rejected
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="approvalStatusId > 0 && approvalStatusId != NotStarted" id="initApprovalDiv" class="row">
+                <div class="col-sm-12 col-xl-12 col-lg-12">
+
+                    <div class="card mb-1">
+
+                        <div class="card-header" data-toggle="collapse" href="#collapseAssignee">
+                            <a class="card-title">
+                                Assignee Settings
+                            </a>
+                        </div>
+                        <div id="collapseAssignee" class="card-body show">
+
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Assignee</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-select-box [items]="currentAssigneeSelectItems" [disabled]="disableItem" [searchEnabled]="true" [(value)]="applicationDataSource.currentAssignedEmployeeId" displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                        <dx-validator>
+                                            <dxi-validation-rule type="required" message="Assignee is required" validationMessageMode='always'></dxi-validation-rule>
+                                        </dx-validator>
+                                    </dx-select-box>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Question/Answer</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-area #questionsTextArea [height]="90" [disabled]="disableItem" [maxLength]="2000" [(value)]="value">
+                                    </dx-text-area>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xl-4">
+                                </div>
+                                <div class="col-xl-8">
+                                    <div style="text-align:left;"
+                                         class="card-header-alternative"
+                                         data-toggle="collapse"
+                                         aria-expanded="false"
+                                         aria-controls="collapseLogs"
+                                         href="#collapseLogs">
+                                        <a style="font-size: 12px;" class="card-title">
+                                            <span style="vertical-align:text-top;"> Communication Logs </span>
+                                        </a>
+                                    </div>
+                                    <div id="collapseLogs" class="collapse">
+                                        <div class="card card-body">
+
+                                            <table style="border:none!important;" class="child-table table-striped">
+                                                <tbody>
+                                                    <tr *ngFor="let noteList of noteLogsCurrentAssignee; let i=index;">
+                                                        <td style="width:6%; text-align:center;">
+                                                            <div *ngIf="noteList.isAssignedToMe">
+                                                                <img [src]="getAssignedByPhotoUrl(noteList)" class="img-circle-note img-thumbnail" />
+                                                            </div>
+                                                            <div *ngIf="!noteList.isAssignedToMe">
+                                                                <img [src]="getAssignedToPhotoUrl(noteList)" class="img-circle-note img-thumbnail" />
+                                                            </div>
+                                                        </td>
+                                                        <td style="width:93%; padding: 6px;">
+                                                            <span *ngIf="noteList.isAssignedToMe" style="color: blueviolet; font-size: 11px; font-weight: bold;">
+                                                                {{noteList.responseDetail}} &nbsp; <img src="../../../../assets/icons/delete_note_16.png" style="width:12px; height:12px; display:none; cursor:pointer;" (click)="onDeleteNote(noteList)" /> <br />
+                                                                Assigned To Me By {{noteList.createdBy}} :
+                                                            </span>
+                                                            <span *ngIf="!noteList.isAssignedToMe" style="color: blueviolet; font-size: 11px; font-weight: bold;">
+                                                                {{noteList.responseDetail}} &nbsp; <img src="../../../../assets/icons/delete_note_16.png" style="width:12px; height:12px; cursor:pointer;" alt="delete" title="click here to delete note" (click)="onDeleteNote(noteList)" /> <br />
+                                                                Assigned To {{noteList.createdFor}} By Me :
+                                                            </span>
+                                                            <span style="padding-left:5px; font-size:13px;"> {{noteList.noteDetail}} </span>
+
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+
+                                                
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div id="initDiv" class="row">
+                <div class="col-sm-12 col-xl-12 col-lg-12">
+                    <div class="row form-group">
+                        <div class="col-xl-2 card-body-caption">
+                            <label>Loan Type</label>
+                            <span class="required-mark">*</span>
+                        </div>
+                        <div class="col-xl-10">
+                            <dx-select-box [items]="loanTypeSelectItems" [searchEnabled]="true" [disabled]="applicationId > 0 ? true : false" [(value)]="applicationDataSource.loanTypeId" displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                <dx-validator>
+                                    <dxi-validation-rule type="required" message="Loan type is required" validationMessageMode='always'></dxi-validation-rule>
+                                </dx-validator>
+                            </dx-select-box>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-xl-2 card-body-caption">
+                            <label>Branch Name</label>
+                            <span class="required-mark">*</span>
+                        </div>
+                        <div class="col-xl-10">
+                            <dx-select-box [items]="branchSelectItems" [searchEnabled]="true" [disabled]="applicationId > 0 ? true : false" [(value)]="applicationDataSource.branchId" displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                <dx-validator>
+                                    <dxi-validation-rule type="required" message="Branch Name is required" validationMessageMode='always'></dxi-validation-rule>
+                                </dx-validator>
+                            </dx-select-box>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-xl-2 card-body-caption">
+                            <label>Loan Requested Amount</label>
+                            <span class="required-mark">*</span>
+                        </div>
+                        <div class="col-xl-10">
+                            <dx-number-box class="numberAlign" [(value)]="applicationDataSource.requestedLoanAmount" min="1" max="999999999" format="#,##0.00" [showSpinButtons]="false">
+                                <dx-validator>
+                                    <dxi-validation-rule type="required" message="Loan Requested Amount is required" validationMessageMode='always'></dxi-validation-rule>
+                                </dx-validator>
+                            </dx-number-box>
+                        </div>
+                    </div>
+                    <div class="row form-group ">
+                        <div class="col-xl-2 card-body-caption">
+                            <label>Assigned Credit Officer</label>
+                            <span class="required-mark">*</span>
+                        </div>
+                        <div class="col-xl-10">
+                            <dx-select-box [items]="employeeSelectItems" [searchEnabled]="true" [disabled]="applicationId > 0 ? true : false" [(value)]="applicationDataSource.assignedEmployeeId" displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                <dx-validator>
+                                    <dxi-validation-rule type="required" message="Assigned Credit Officer is required" validationMessageMode='always'></dxi-validation-rule>
+                                </dx-validator>
+                            </dx-select-box>
+                        </div>
+                    </div>
+                    <!--<div class="row form-group ">
+                        <div class="col-xl-2 card-body-caption">
+                            <label>Nepali Date</label>
+                            <span class="required-mark">*</span>
+                        </div>
+                        <div class="col-xl-10">
+                            <np-datepicker ([ngModel])="nepaliDate"></np-datepicker>
+                        </div>
+                    </div>-->
+                    <div [ngClass]="initialClassGroup">
+                        <div class="col-xl-2 card-body-caption">
+                        </div>
+                        <div class="col-xl-10">
+                            <p style="font-style:italic; color: #aeaeae;">(Please select loan type, Branch name, loan amount and then save to continue to fill up the application)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="editDiv" class="row">
+                <div class="col-sm-12 col-xl-12 col-lg-12">
+                    <div class="card mb-1">
+                        <div class="card-header" data-toggle="collapse" href="#collapseOne">
+                            <a class="card-title">
+                                General Information
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="card-body show">
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>First Name</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="contactDataSource.firstName" [disabled]="disableItem" [valueChangeEvent]="'keyup'">
+                                        <dx-validator>
+                                            <dxi-validation-rule type="required" message="First Name is required" validationMessageMode='always'></dxi-validation-rule>
+                                        </dx-validator>
+                                    </dx-text-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Last Name</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="contactDataSource.lastName" [disabled]="disableItem" [valueChangeEvent]="'keyup'">
+                                        <dx-validator>
+                                            <dxi-validation-rule type="required" message="Last Name is required" validationMessageMode='always'></dxi-validation-rule>
+                                        </dx-validator>
+                                    </dx-text-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Preferred Name</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="contactDataSource.preferredName" [disabled]="disableItem" [valueChangeEvent]="'keyup'">
+                                        <dx-validator>
+                                            <dxi-validation-rule type="required" message="Preferred Name is required" validationMessageMode='always'></dxi-validation-rule>
+                                        </dx-validator>
+                                    </dx-text-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Date Of Birth</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-date-box [(value)]="contactDataSource.dateOfBirth" [disabled]="disableItem" [min]="minDate" [max]="maxDate" displayFormat="dd/MM/yyyy">
+                                        <dx-validator>
+                                            <dxi-validation-rule type="required" message="Date Of Birth is required" validationMessageMode='always'></dxi-validation-rule>
+                                        </dx-validator>
+                                    </dx-date-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Gender</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-radio-group [items]="genderSelectItems" [disabled]="disableItem" [(value)]="contactDataSource.genderId" displayExpr="name" valueExpr="id" layout="horizontal">
+                                        <dx-validator>
+                                            <dxi-validation-rule type="required" message="Gender is required" validationMessageMode='always'></dxi-validation-rule>
+                                        </dx-validator>
+                                    </dx-radio-group>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Business Phone</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="contactDataSource.businessPhone" [disabled]="disableItem" [valueChangeEvent]="'keyup'">
+                                        <dx-validator>
+                                            <dxi-validation-rule type="required" message="Business Phone is required" validationMessageMode='always'></dxi-validation-rule>
+                                        </dx-validator>
+                                    </dx-text-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Mobile Phone</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="contactDataSource.mobile" [disabled]="disableItem" [valueChangeEvent]="'keyup'">
+                                        <dx-validator>
+                                            <dxi-validation-rule type="required" message="Mobile Phone is required" validationMessageMode='always'></dxi-validation-rule>
+                                        </dx-validator>
+                                    </dx-text-box>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-1">
+                        <div class="card-header" data-toggle="collapse" href="#collapseFive">
+                            <a class="card-title">
+                                Loan Information
+
+                            </a>
+                        </div>
+                        <div id="collapseFive" class="card-body show">
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Application ID</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="applicationDataSource.applicationId" [disabled]="true" [valueChangeEvent]="'keyup'">
+                                    </dx-text-box>
+                                </div>
+                            </div>
+
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Application Status</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-select-box [items]="applicationStatusTypeSelectItems" [searchEnabled]="true" [disabled]="true" [(value)]="applicationDataSource.applicationStatusId" displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                    </dx-select-box>
+                                </div>
+                            </div>
+
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Loan Type</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-select-box [items]="loanTypeSelectItems" [searchEnabled]="true" [disabled]="true" [(value)]="applicationDataSource.loanTypeId" displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                    </dx-select-box>
+                                </div>
+                            </div>
+
+
+
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Branch Name</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-select-box [items]="branchSelectItems" [searchEnabled]="true" [disabled]="disableItem" [(value)]="applicationDataSource.branchId" displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                        <dx-validator>
+                                            <dxi-validation-rule type="required" message="Branch Name is required" validationMessageMode='always'></dxi-validation-rule>
+                                        </dx-validator>
+                                    </dx-select-box>
+                                </div>
+                            </div>
+
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Assigned Credit Officer</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-select-box [items]="employeeSelectItems" [searchEnabled]="true" [disabled]="disableItem" [(value)]="applicationDataSource.assignedEmployeeId" displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                        <dx-validator>
+                                            <dxi-validation-rule type="required" message="Assigned Credit Officer is required" validationMessageMode='always'></dxi-validation-rule>
+                                        </dx-validator>
+                                    </dx-select-box>
+                                </div>
+                            </div>
+
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Loan Requested Amount</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-number-box class="numberAlign" [(value)]="applicationDataSource.requestedLoanAmount" [disabled]="disableItem" min="1" max="999999999" format="#,##0.00" [showSpinButtons]="false">
+                                        <dx-validator>
+                                            <dxi-validation-rule type="required" message="Loan Requested Amount is required" validationMessageMode='always'></dxi-validation-rule>
+                                        </dx-validator>
+                                    </dx-number-box>
+                                </div>
+                            </div>
+
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Notes</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-area [(value)]="applicationDataSource.description" [disabled]="disableItem" [valueChangeEvent]="'keyup'"></dx-text-area>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngFor="let data of applicationDataSource.customFieldGroup; let i = index;" class="card mb-1">
+                        <div class="card-header" data-toggle="collapse" [attr.href]="'#collapse' + i">
+                            <a class="card-title">
+                                {{ data }}
+                            </a>
+                        </div>
+                        <div id="collapse{{i}}" class="card-body show">
+                            <div *ngFor="let dataField of applicationCustomFields">
+                                <div *ngIf="dataField.customFieldMaster.groupName == data;" class="row form-group ">
+                                    <div class="col-xl-4 card-body-caption">
+                                        <label>{{ dataField.customFieldMaster.caption }}</label>
+                                        <span *ngIf="dataField.customFieldMaster.isMandatory" class="required-mark">*</span>
+                                    </div>
+                                    <div class="col-xl-8">
+                                        <ng-container *ngIf="dataField.customFieldMaster.controlTypeId === 1; else elseif1">
+
+                                            <div *ngIf="dataField.customFieldMaster.isMandatory">
+                                                <dx-text-box [(value)]="dataField.value" [disabled]="disableItem" (onValueChanged)="onCustomFieldvalueChanged($event, dataField)" [valueChangeEvent]="'keyup'">
+                                                    <dx-validator>
+                                                        <dxi-validation-rule type="required" message="{{dataField.customFieldMaster.caption}} is required" validationMessageMode='always'></dxi-validation-rule>
+                                                    </dx-validator>
+                                                </dx-text-box>
+                                            </div>
+                                            <div *ngIf="!dataField.customFieldMaster.isMandatory">
+                                                <dx-text-box [(value)]="dataField.value" [disabled]="disableItem" (onValueChanged)="onCustomFieldvalueChanged($event, dataField)" [valueChangeEvent]="'keyup'">
+                                                </dx-text-box>
+                                            </div>
+                                        </ng-container>
+                                        <ng-template #elseif1>
+                                            <ng-container *ngIf="dataField.customFieldMaster.controlTypeId === 2; else elseif2">
+
+                                                <div *ngIf="dataField.customFieldMaster.isMandatory">
+                                                    <dx-select-box [items]="dataField.customFieldMaster.controlSelectedItem" [disabled]="disableItem" [searchEnabled]="true" [(value)]="dataField.value" (onValueChanged)="onCustomFieldvalueChanged($event, dataField)" displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                                        <dx-validator>
+                                                            <dxi-validation-rule type="required" message="{{dataField.customFieldMaster.caption}} is required" validationMessageMode='always'></dxi-validation-rule>
+                                                        </dx-validator>
+                                                    </dx-select-box>
+                                                </div>
+
+                                                <div *ngIf="!dataField.customFieldMaster.isMandatory">
+                                                    <dx-select-box [items]="dataField.customFieldMaster.controlSelectedItem" [disabled]="disableItem" [searchEnabled]="true" [(value)]="dataField.value" (onValueChanged)="onCustomFieldvalueChanged($event, dataField)" displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                                    </dx-select-box>
+                                                </div>
+                                                
+                                            </ng-container>
+                                        </ng-template>
+                                        <ng-template #elseif2>
+                                            <ng-container *ngIf="dataField.customFieldMaster.controlTypeId === 3; else elseif3">
+                                                <div style="padding-top:8px;" class="card-body-control-checkbox">
+
+                                                    <div *ngIf="dataField.customFieldMaster.isMandatory">
+                                                        <dx-check-box [(value)]="dataField.value" [disabled]="disableItem" (onValueChanged)="onCustomFieldvalueChanged($event, dataField)">
+                                                            <dx-validator>
+                                                                <dxi-validation-rule type="required" message="{{dataField.customFieldMaster.caption}} is required" validationMessageMode='always'></dxi-validation-rule>
+                                                            </dx-validator>
+                                                        </dx-check-box>
+                                                    </div>
+
+                                                    <div *ngIf="!dataField.customFieldMaster.isMandatory">
+                                                        <dx-check-box [(value)]="dataField.value" [disabled]="disableItem" (onValueChanged)="onCustomFieldvalueChanged($event, dataField)"></dx-check-box>
+                                                    </div>
+
+                                                    
+                                                </div>
+                                            </ng-container>
+                                        </ng-template>
+                                        <ng-template #elseif3>
+                                            <ng-container *ngIf="dataField.customFieldMaster.controlTypeId === 4; else elseif4">
+
+                                                <div *ngIf="dataField.customFieldMaster.isMandatory">
+                                                    <dx-radio-group [items]="dataField.customFieldMaster.controlSelectedItem" [disabled]="disableItem" [(value)]="dataField.value" (onValueChanged)="onCustomFieldvalueChanged($event, dataField)"
+                                                                    displayExpr="name" valueExpr="id" layout="horizontal">
+                                                        <dx-validator>
+                                                            <dxi-validation-rule type="required" message="{{dataField.customFieldMaster.caption}} is required" validationMessageMode='always'></dxi-validation-rule>
+                                                        </dx-validator>
+                                                    </dx-radio-group>
+                                                </div>
+
+                                                <div *ngIf="!dataField.customFieldMaster.isMandatory">
+                                                    <dx-radio-group [items]="dataField.customFieldMaster.controlSelectedItem" [disabled]="disableItem" [(value)]="dataField.value" (onValueChanged)="onCustomFieldvalueChanged($event, dataField)"
+                                                                    displayExpr="name" valueExpr="id" layout="horizontal">
+                                                    </dx-radio-group>
+                                                </div>
+
+                                               
+                                            </ng-container>
+                                        </ng-template>
+                                        <ng-template #elseif4>
+                                            <ng-container *ngIf="dataField.customFieldMaster.controlTypeId === 5; else elseif5">
+
+                                                <div *ngIf="dataField.customFieldMaster.isMandatory">
+                                                    <dx-text-area (onValueChanged)="onCustomFieldvalueChanged($event, dataField)" [disabled]="disableItem" [(value)]="dataField.value">
+                                                        <dx-validator>
+                                                            <dxi-validation-rule type="required" message="{{dataField.customFieldMaster.caption}} is required" validationMessageMode='always'></dxi-validation-rule>
+                                                        </dx-validator>
+                                                    </dx-text-area>
+                                                </div>
+
+                                                <div *ngIf="!dataField.customFieldMaster.isMandatory">
+                                                    <dx-text-area (onValueChanged)="onCustomFieldvalueChanged($event, dataField)" [disabled]="disableItem" [(value)]="dataField.value">
+                                                    </dx-text-area>
+                                                </div>
+
+                                               
+                                            </ng-container>
+                                        </ng-template>
+                                        <ng-template #elseif5>
+                                            <ng-container *ngIf="dataField.customFieldMaster.controlTypeId === 6; else elseif6">
+
+                                                <div *ngIf="dataField.customFieldMaster.isMandatory">
+                                                    <dx-date-box [(value)]="dataField.value" (onValueChanged)="onCustomFieldvalueChanged($event, dataField)" [disabled]="disableItem" displayFormat="dd/MM/yyyy">
+                                                        <dx-validator>
+                                                            <dxi-validation-rule type="required" message="{{dataField.customFieldMaster.caption}} is required" validationMessageMode='always'></dxi-validation-rule>
+                                                        </dx-validator>
+                                                    </dx-date-box>
+                                                </div>
+
+                                                <div *ngIf="!dataField.customFieldMaster.isMandatory">
+                                                    <dx-date-box [(value)]="dataField.value" (onValueChanged)="onCustomFieldvalueChanged($event, dataField)" [disabled]="disableItem" displayFormat="dd/MM/yyyy">
+                                                    </dx-date-box>
+                                                </div>
+
+                                              
+                                            </ng-container>
+                                        </ng-template>
+                                        <ng-template #elseif6>
+
+                                            <div *ngIf="dataField.customFieldMaster.isMandatory">
+                                                <dx-number-box [(value)]="dataField.value" min="1" max="999999999" format="#,##0.00" class="numberAlign"
+                                                               (onValueChanged)="onCustomFieldvalueChanged($event, dataField)" [disabled]="disableItem" [showSpinButtons]="false">
+
+                                                    <dx-validator>
+                                                        <dxi-validation-rule type="required" message="{{dataField.customFieldMaster.caption}} is required" validationMessageMode='always'></dxi-validation-rule>
+                                                    </dx-validator>
+                                                </dx-number-box>
+                                            </div>
+
+                                            <div *ngIf="!dataField.customFieldMaster.isMandatory">
+                                                <dx-number-box [(value)]="dataField.value" min="1" max="999999999" format="#,##0.00" class="numberAlign"
+                                                               (onValueChanged)="onCustomFieldvalueChanged($event, dataField)" [disabled]="disableItem" [showSpinButtons]="false">
+                                                </dx-number-box>
+                                            </div>
+
+
+                                           
+                                        </ng-template>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--</div>-->
+        </dx-validation-group>
+    </form>
+</div>

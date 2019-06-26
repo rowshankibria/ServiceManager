@@ -1,0 +1,80 @@
+<app-titlebar (save)="onSaveClicked($event)" (close)="onCloseClicked()" (saveNew)="onSaveNNewClicked()" (saveClose)="onSaveNCloseClicked()"></app-titlebar>
+
+<div [ngClass]="contentClass">
+    <form #categoryForm="ngForm">
+        <dx-validation-group #formValidation>
+            <div class="row">
+                <div class="col col-xl-12 col-lg-12">
+                    <div class="card mb-0">
+                        <div class="card-header" data-toggle="collapse" href="#collapseOne">
+                            <a class="card-title">
+                                General Information
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="card-body show">                            
+                            <div [ngClass]="mapTypeStyle">
+                                <div class="col-xl-3 card-body-caption">
+                                    <label>Map Type</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="col-xl-9">
+                                    <dx-select-box [items]="mapTypeSelectItems" [(value)]="customCategory.customCategoryMapTypeOptionId" displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                        <dx-validator #mapTypeOptionValidation></dx-validator>
+                                    </dx-select-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-3 card-body-caption">
+                                    <label>Code</label>
+                                </div>
+                                <div class="col-xl-9">
+                                    <dx-number-box min="1" max="9999" [(value)]="customCategory.code" [valueChangeEvent]="'keyup'" [showSpinButtons]="true">
+                                    </dx-number-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-3 card-body-caption">
+                                    <label>Name</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="col-xl-9">
+                                    <dx-text-box [(value)]="customCategory.name" [valueChangeEvent]="'keyup'">
+                                        <dx-validator #nameValidation></dx-validator>
+                                    </dx-text-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-3 card-body-caption">
+                                    <label>Description</label>
+                                </div>
+                                <div class="col-xl-9">
+                                    <dx-text-area [(value)]="customCategory.desciption" [height]="90">
+                                    </dx-text-area>
+                                </div>
+                            </div>
+                            <div *ngIf="customCategory.isActive" class="row form-group ">
+                                <div class="col-xl-3 card-body-caption-checkbox">
+                                    <label>Default</label>
+                                </div>
+                                <div class="col-xl-9 card-body-control-checkbox">
+                                    <dx-check-box [disabled]="disabledDefaultCheckbox" [(value)]="customCategory.isDefault" text="" (onValueChanged)="defaultValueChanged($event)"></dx-check-box>
+                                </div>
+                            </div>
+                            <div *ngIf="categoryId>0" class="row form-group ">
+                                <div class="col-xl-3 card-body-caption-checkbox">
+                                    <label>Active</label>
+                                </div>
+                                <div class="col-xl-9 card-body-control-checkbox">
+                                    <dx-check-box [(value)]="customCategory.isActive" text=""></dx-check-box>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </dx-validation-group>
+    </form>
+
+</div>

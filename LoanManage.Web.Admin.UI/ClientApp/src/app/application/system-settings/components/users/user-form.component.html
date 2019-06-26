@@ -1,0 +1,281 @@
+<app-titlebar (save)="onSaveClicked($event)" (close)="onCloseClicked($event)" (saveNew)="onSaveNNewClicked($event)" (saveClose)="onSaveNCloseClicked($event)"></app-titlebar>
+<div [ngClass]="contentClass">
+    <form #userForm="ngForm">
+        <dx-validation-group #formValidation>
+            <div class="row">
+                <div class="col-sm-12 col-xl-7 col-lg-12 div-two-column-left">
+                    <div class="card mb-1">
+                        <div class="card-header" data-toggle="collapse" href="#collapseOne">
+                            <a class="card-title">
+                                General Information
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="card-body show">
+                            <div class="row">
+                                <div class="col-lg-3 col-xl-3 col-sm-12">
+                                    <div class="col-xl-12">
+                                        <app-image-upload #imgUploadControl></app-image-upload>
+                                    </div>
+                                </div>
+                                <div class="col-lg-9 col-xl-9 col-sm-12">
+
+                                    <div class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>User Type</label>
+                                            <span class="required-mark">*</span>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-select-box #userTypeCombobox [items]="userTypeSelectItems" [searchEnabled]="true" [(value)]="userDataSource.userType" displayExpr="name" valueExpr="id" [showClearButton]="true"
+                                                           (onValueChanged)="onUserTypeValueChanged($event)">
+                                                <dx-validator #userTypeValidation></dx-validator>
+                                            </dx-select-box>
+                                        </div>
+                                    </div>
+                                    <div [ngClass]="entityContentClass">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>{{entityName}}</label>
+                                            <span class="required-mark">*</span>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-drop-down-box #entitySourceCombobox valueExpr="id" [(value)]="gridBoxValue" [displayExpr]="gridBox_displayExpr" [deferRendering]="false" placeholder="Select..."
+                                                              [showClearButton]="true" [dataSource]="entityDataSource" [(opened)]="isDropDownBoxOpened">
+                                                <div *dxTemplate="let data of 'content'">
+                                                    <dx-data-grid [dataSource]="entityDataSource"
+                                                                  [columns]="['name']"
+                                                                  [selection]="{ mode: 'single' }"
+                                                                  [hoverStateEnabled]="true"
+                                                                  [filterRow]="{ visible: true }"
+                                                                  [remoteOperations]="true"
+                                                                  [(selectedRowKeys)]="gridSelectedRowKeys"
+                                                                  (onSelectionChanged)="onSelectionChanged($event)">
+                                                        <dxo-paging [pageSize]="8"></dxo-paging>
+                                                    </dx-data-grid>
+                                                </div>
+                                                <dx-validator #entitySourceValidation></dx-validator>
+                                            </dx-drop-down-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Title</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-select-box [items]="titleSelectItems" [searchEnabled]="true" [(value)]="contactDataSource.titleId" displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                            </dx-select-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>First Name</label>
+                                            <span class="required-mark">*</span>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-box [(value)]="contactDataSource.firstName" [valueChangeEvent]="'keyup'">
+                                                <dx-validator #firstNameValidation></dx-validator>
+                                            </dx-text-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Middle Name</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-box [(value)]="contactDataSource.middleName" [valueChangeEvent]="'keyup'">
+                                            </dx-text-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Last Name</label>
+                                            <span class="required-mark">*</span>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-box [(value)]="contactDataSource.lastName" [valueChangeEvent]="'keyup'">
+                                                <dx-validator #lastNameValidation></dx-validator>
+                                            </dx-text-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Business Phone</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-box [(value)]="contactDataSource.businessPhone" [valueChangeEvent]="'keyup'">
+                                            </dx-text-box>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Mobile</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-box [(value)]="contactDataSource.mobile" [valueChangeEvent]="'keyup'">
+                                            </dx-text-box>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-xl-5 col-lg-12 div-two-column-right">
+                    <div class="card mb-1">
+                        <div class="card-header" data-toggle="collapse" href="#collapseTwo">
+                            <a class="card-title">
+                                Login Credential
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="card-body show">
+
+                            <div class="row form-group">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Email</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="userDataSource.email" #emailtextbox [valueChangeEvent]="'keyup'">
+                                        <dx-validator #emailValidation></dx-validator>
+                                    </dx-text-box>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Time Zone</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-select-box [items]="timeZoneSelectItems" [searchEnabled]="true" [(value)]="contactDataSource.timeZoneId" displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                        <dx-validator #timeZoneValidation></dx-validator>
+                                    </dx-select-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>User Name</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="userDataSource.userName" [valueChangeEvent]="'keyup'">
+                                        <dx-validator #userNameValidation></dx-validator>
+                                    </dx-text-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Password</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box mode="password" #passwordTextbox [(value)]="userDataSource.newPassword" [valueChangeEvent]="'keyup'">
+                                        <dx-validator #passwordValidation></dx-validator>
+                                    </dx-text-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Confirmed Password</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box mode="password" #confirmedPasswordTextbox [(value)]="confirmedPassword" [valueChangeEvent]="'keyup'">
+                                        <dx-validator #confirmPasswordValidation></dx-validator>
+                                    </dx-text-box>
+                                </div>
+                            </div>
+
+
+                            <div style="display:none;" class="row form-group ">
+                                <div class="col-xl-4 card-body-caption-checkbox">
+                                    <label></label>
+                                </div>
+                                <div class="col-xl-8 card-body-control-checkbox">
+                                    <dx-check-box [(value)]="userDataSource.isPendingAuthentication" [visible]="false" text=" Send credential email to user"></dx-check-box>
+                                </div>
+                            </div>
+
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption-checkbox">
+                                </div>
+                                <div class="col-xl-8 card-body-control-checkbox">
+                                    <dx-check-box [(value)]="userDataSource.lockoutEnabled" text="Locked"></dx-check-box>
+                                </div>
+                            </div>
+                            <div *ngIf="userId !== '' " class="row form-group ">
+                                <div class="col-xl-4 card-body-caption-checkbox">
+                                </div>
+                                <div class="col-xl-8 card-body-control-checkbox">
+                                    <dx-check-box [(value)]="userDataSource.isActive" text="Active"></dx-check-box>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </dx-validation-group>
+    </form>
+    <div class="row">
+        <div class="col-sm-12 col-xl-12 col-lg-12 div-one-column">
+            <div class="card mb-1">
+                <div class="card-header" data-toggle="collapse" href="#collapseThree">
+                    <a class="card-title">
+                        User Permission
+                    </a>
+                </div>
+                <div id="collapseThree" class="card-body show">
+                    <div class="row">
+                        <div class="col-sm-12 col-xl-6">
+                            <dx-tree-list #roleTreeList
+                                          id="roleTreeList"
+                                          [dataSource]="roleDataSource"
+                                          keyExpr="sId"
+                                          itemsExpr="items"
+                                          parentIdExpr="sParentId"
+                                          dataStructure="plain"
+                                          [showRowLines]="true"
+                                          [showBorders]="true"
+                                          [columnAutoWidth]="true"
+                                          [rowAlternationEnabled]="true"
+                                          [autoExpandAll]="true"
+                                          [height]="700"
+                                          [(selectedRowKeys)]="userDataSource.userRoles"
+                                          (onSelectionChanged)="onRowSelection($event)"
+                                          (onInitialized)="onRoleTreelistInitialized($event)">
+                                <dxo-selection mode="multiple" [recursive]="false"> </dxo-selection>
+                                <dxi-column dataField="name" [allowSorting]="false" caption="Role"></dxi-column>
+                            </dx-tree-list>
+                        </div>
+                        <div class="col-sm-12 col-xl-6">
+                            <dx-tree-list #rightTreeList
+                                          id="rightDataSource"
+                                          [dataSource]="rightDataSource"
+                                          keyExpr="id"
+                                          itemsExpr="items"
+                                          parentIdExpr="parentId"
+                                          dataStructure="tree"
+                                          [showRowLines]="true"
+                                          [showBorders]="true"
+                                          [autoExpandAll]="true"
+                                          [height]="700"
+                                          [rowAlternationEnabled]="true"
+                                          [columnAutoWidth]="true"
+                                          (onInitialized)="onRightTreelistInitialized($event)">
+                                <dxo-selection mode="none"></dxo-selection>
+                                <dxi-column dataField="name" [allowSorting]="false" caption="Right Name"></dxi-column>
+                            </dx-tree-list>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

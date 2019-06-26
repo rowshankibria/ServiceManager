@@ -1,0 +1,15 @@
+<div *ngIf="herbCategoryId>0; else elseBlock">
+    <dx-tab-panel #tabPanel
+                  [dataSource]="tabs"
+                  [selectedIndex]="0">
+        <div *dxTemplate="let item of 'generalInformation'">
+            <app-herb-category-form [entityModel]="entityModel"></app-herb-category-form>
+        </div>
+        <div *dxTemplate="let item of 'herbSubcategories'">            
+            <app-dx-data-grid [EntityId]="herbCategoryId" [PageComponentKey]="pagekeyComponent"></app-dx-data-grid>
+        </div>
+    </dx-tab-panel>
+</div>
+<ng-template #elseBlock>
+    <app-herb-category-form [entityModel]="entityModel"></app-herb-category-form>
+</ng-template>

@@ -1,0 +1,37 @@
+/// <summary>
+        /// 
+        /// </summary>
+        /// <param name="businessProfileIds"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("get-practitioner-by-businessprofile-list")]
+        public async Task<IActionResult> GetPractitionerByBusinessProfileAsync([FromBody] List<int> businessProfileIds)
+        {
+            return Ok(patientService.GetPractitionerSelectItemsAsync(businessProfileIds));
+        }
+
+
+ /// <summary>
+        /// get practitioner selected items by business profile ids
+        /// </summary>
+        /// <param name="businessprofileIds"></param>
+        /// <returns></returns>
+        public List<SelectModel> GetPractitionerSelectItemsAsync(List<int> businessprofileIds)
+        {
+            var query = from c in this.contactRepository.GetAll()
+                        join cb in this.businessProfileContactRepository.GetAll() on c.Id equals cb.ContactId
+                        where c.IsActive == true && c.ContactType == (int)Itm.Configuration.Enums.ContactType.Practitioner
+                        select new SelectModel
+                        {
+                            Id = c.Id,
+                            Name = c.FirstName + " " + c.LastName + " (email: " + c.Email + ")"
+                        };
+
+
+            return query.Distinct().ToList<SelectModel>();
+
+            //return Task.Run(() => contactRepository.Where(x => x.IsActive == true && x.ContactType == (int)Itm.Configuration.Enums.ContactType.Contact)
+            //.Include(t => t.ContactBusinessProfiles)
+            //.Distinct()
+            //.Select(x => new SelectModel { Id = x.Id, Name = x.FirstName + " " + x.LastName }).ToList()).Result;
+        }

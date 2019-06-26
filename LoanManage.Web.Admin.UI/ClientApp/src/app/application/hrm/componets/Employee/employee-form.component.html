@@ -1,0 +1,395 @@
+<div class="tab-detail-page-titlebar">
+    <app-titlebar style="position:unset!important;" (save)="onSaveClicked($event)" (close)="onCloseClicked($event)" (saveNew)="onSaveNNewClicked($event)" (saveClose)="onSaveNCloseClicked($event)"></app-titlebar>
+</div>
+
+<div [ngClass]="contentClass">
+    <form #userForm="ngForm">
+        <dx-validation-group #formValidation>
+            <div class="row">
+                <div class="col-sm-12 col-xl-7 col-lg-12 div-two-column-left">
+                    <div class="card mb-1">
+                        <div class="card-header" data-toggle="collapse" href="#collapseOne">
+                            <a class="card-title">
+                                General Information
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="card-body show">
+                            <div class="row">
+                                <div class="col-lg-3 col-xl-3 col-sm-12">
+                                    <div class="col-xl-12">
+                                        <app-image-upload #imgUploadControl></app-image-upload>
+                                    </div>
+                                </div>
+                                <div class="col-lg-9 col-xl-9 col-sm-12">
+                                   
+                                    <div class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Employee ID</label>
+                                            <span class="required-mark">*</span>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-box [(value)]="employeeDataSource.employeeId" [valueChangeEvent]="'keyup'">
+                                                <dx-validator #employeeIdValidation></dx-validator>
+                                            </dx-text-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Title</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-select-box [items]="titleSelectItems" [searchEnabled]="true" [(value)]="contactDataSource.titleId" displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                            </dx-select-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>First Name</label>
+                                            <span class="required-mark">*</span>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-box [(value)]="contactDataSource.firstName" [valueChangeEvent]="'keyup'">
+                                                <dx-validator #firstNameValidation></dx-validator>
+                                            </dx-text-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Middle Name</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-box [(value)]="contactDataSource.middleName" [valueChangeEvent]="'keyup'">
+                                            </dx-text-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Last Name</label>
+                                            <span class="required-mark">*</span>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-box [(value)]="contactDataSource.lastName" [valueChangeEvent]="'keyup'">
+                                                <dx-validator #lastNameValidation></dx-validator>
+                                            </dx-text-box>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Preferred Name</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-box [(value)]="contactDataSource.preferredName" [valueChangeEvent]="'keyup'">
+                                            </dx-text-box>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Position</label>
+                                            <span class="required-mark">*</span>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-select-box [items]="positionSelectItems" [searchEnabled]="true" [(value)]="contactDataSource.postionId" displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                                <dx-validator>
+                                                    <dxi-validation-rule type="required" message="Position is required"></dxi-validation-rule>
+                                                </dx-validator>
+                                            </dx-select-box>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Date Of Birth</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-date-box [(value)]="contactDataSource.dateOfBirthDateFormat" [min]="minDate" [max]="maxDate" displayFormat="dd/MM/yyyy"> </dx-date-box>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Gender</label>
+                                        </div>
+                                        <div class="col-xl-9 card-body-control-radio">
+                                            <dx-radio-group [items]="genderSelectItems" [(value)]="contactDataSource.genderId" displayExpr="name" valueExpr="id" layout="horizontal">
+                                            </dx-radio-group>
+                                        </div>
+                                    </div>                                   
+
+                                    <div *ngIf="employeeId>0" class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption-checkbox">
+                                            <label>Active</label>
+                                        </div>
+                                        <div class="col-xl-9 card-body-control-checkbox">
+                                            <dx-check-box [(value)]="contactDataSource.isActive"></dx-check-box>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card mb-1">
+                        <div class="card-header" data-toggle="collapse" href="#collapseFour">
+                            <a class="card-title">
+                                Internal
+                            </a>
+                        </div>
+                        <div id="collapseFour" class="card-body show">
+
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Department</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-select-box [items]="departmentSelectItems" [searchEnabled]="true" [(value)]="employeeDataSource.departmentId" displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                        <dx-validator>
+                                            <dxi-validation-rule type="required" message="Department is required"></dxi-validation-rule>
+                                        </dx-validator>
+                                    </dx-select-box>
+                                </div>
+                            </div>
+
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Floor</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="employeeDataSource.floor" [valueChangeEvent]="'keyup'">
+                                    </dx-text-box>
+                                </div>
+                            </div>
+
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Desk Number</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="employeeDataSource.deskId" [valueChangeEvent]="'keyup'">
+                                    </dx-text-box>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="card mb-1">
+                        <div class="card-header" data-toggle="collapse" href="#collapseThree">
+                            <a class="card-title">
+                                Emergency Contact Details
+                            </a>
+                        </div>
+                        <div id="collapseThree" class="card-body show">
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Contact Person</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="contactDataSource.emergencyContactName" [valueChangeEvent]="'keyup'">
+                                    </dx-text-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Contact Number</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="contactDataSource.emergencyContactNumber" [valueChangeEvent]="'keyup'">
+                                    </dx-text-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Relationship</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="contactDataSource.emergencyContactRelation" [valueChangeEvent]="'keyup'">
+                                    </dx-text-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Special Instruction</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-area [(value)]="contactDataSource.specialInstruction" [height]="90" [maxLength]="400">
+                                    </dx-text-area>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div>
+                <div class="col-sm-12 col-xl-5 col-lg-12 div-two-column-right">
+                    <div class="card mb-1">
+                        <div class="card-header" data-toggle="collapse" href="#collapseTwo">
+                            <a class="card-title">
+                                Contact Details
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="card-body show">
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Email</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="contactDataSource.email" [valueChangeEvent]="'keyup'">
+                                        <dx-validator #emailValidation></dx-validator>
+                                    </dx-text-box>
+                                </div>
+                            </div>
+                          
+
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Business Phone</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="contactDataSource.businessPhone" [valueChangeEvent]="'keyup'">
+                                    </dx-text-box>
+
+                                </div>                               
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Home Phone</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="contactDataSource.homePhone" [valueChangeEvent]="'keyup'">
+                                    </dx-text-box>
+                                </div>                                
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Mobile Phone</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="contactDataSource.mobile" [valueChangeEvent]="'keyup'">
+                                    </dx-text-box>
+                                </div>                               
+                            </div>                            
+
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Fax</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="contactDataSource.fax" [valueChangeEvent]="'keyup'">
+                                    </dx-text-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>IM Type</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-select-box [items]="imTypeSelectItems" [searchEnabled]="true" [(value)]="contactDataSource.imTypeId" displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                    </dx-select-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>IM Login Id</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="contactDataSource.imLoginId" [valueChangeEvent]="'keyup'">
+                                    </dx-text-box>
+                                </div>
+                            </div>                          
+
+                        </div>
+                    </div>
+                    
+
+                    <div class="card mb-1">
+                        <div class="card-header" data-toggle="collapse" href="#collapseThree">
+                            <a class="card-title">
+                                Professional Information
+                            </a>
+                        </div>
+                        <div id="collapseThree" class="card-body show">
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Posting Zone</label>
+                                    <span class="required-mark">*</span>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-select-box [items]="postingZoneTypeSelectItems" [searchEnabled]="true" [(value)]="contactDataSource.postingZoneId" (onValueChanged)="onPostingZoneValueChanged($event)" displayExpr="name" valueExpr="id" [showClearButton]="true">
+
+                                        <dx-validator>
+                                            <dxi-validation-rule type="required" message="Posting Zone is required"></dxi-validation-rule>
+                                        </dx-validator>
+                                    </dx-select-box>
+                                </div>
+                            </div>
+                            <div [ngClass]="regionContentClass">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Region</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-select-box [items]="regionSelectItems" [searchEnabled]="true" [(value)]="contactDataSource.companyId" displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                    </dx-select-box>
+                                </div>
+                            </div>
+
+
+                            <div [ngClass]="branchContentClass">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Branch</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-select-box [items]="branchTypeSelectItems" [searchEnabled]="true" [(value)]="contactDataSource.branchId" displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                    </dx-select-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Commencement Date</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-date-box [(value)]="employeeDataSource.jobCommenceDate" displayFormat="dd/MM/yyyy" [showClearButton]="true"> </dx-date-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Job Description</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-area [(value)]="employeeDataSource.jobDescription" [height]="90" [maxLength]="400">
+                                    </dx-text-area>
+                                </div>
+                            </div>
+
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Departure Date</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-date-box [(value)]="employeeDataSource.jobCeasedDate" displayFormat="dd/MM/yyyy" [showClearButton]="true"> </dx-date-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Reason Job Ceased</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-area [(value)]="employeeDataSource.jobCeasedReason" [height]="90" [maxLength]="400">
+                                    </dx-text-area>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </dx-validation-group>
+    </form>
+</div>

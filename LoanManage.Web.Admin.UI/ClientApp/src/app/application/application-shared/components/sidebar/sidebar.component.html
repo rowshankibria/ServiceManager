@@ -1,0 +1,76 @@
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
+    <div class="list-group">
+        <!--<a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+      <i class="fa fa-fw fa-dashboard"></i>&nbsp;{{ 'Dashboard' | translate }}
+    </a>-->
+        <div style="text-align:center; background-color: #3a295d; color: white;">
+
+            <br />
+            <img [src]="imageUrl" class="img-circle img-thumbnail" />
+            <br />
+            {{userName}}
+            <br /> <br />
+        </div>
+
+        <div class="nested-menu" *ngFor="let menu of applicationMenu;">
+            <a id="{{menu.name}}" name="{{menu.name}}" (click)="addExpandClass(menu.name)"
+               class="list-group-item {{(menu.name == defaultMenu)?'menu-selected':''}}">
+                <i class="fa ">  <img src="{{menu.imageSource}}" /> </i>
+                <span class="span-style">{{menu.caption}}</span>
+            </a>
+            <li class="nested" [class.expand]="selectedMenu === menu.name">
+                <ul class="submenu">
+                    <li *ngFor="let submenu of menu.inverseParent;">
+                        <a [routerLink]=[submenu.navigateUrl] [routerLinkActive]="['router-link-active']">
+                            <div class="linkmenu">
+                                <i class="fa">
+                                    <img src="{{submenu.imageSource}}" />
+                                </i><span class="span-style">{{submenu.caption}}</span>
+                            </div>
+                        </a>
+                        <div class="separator"></div>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
+        
+        <div style="padding-left:25px;" class="header-fields">
+
+            <br />
+            <br />
+
+            <ul>
+
+                <li>
+                    <a [routerLink]="['/login']" (click)="onLoggedout()">
+                        <span><i class="fa fa-fw fa-power-off"></i> Log Out</span>
+                    </a>
+                </li>
+
+            </ul>
+
+            <!--<div class="nested-menu">
+                <a class="list-group-item" id="user-profile" (click)="addExpandClass('user-profile')">
+                    <span><i class="fa fa-user"></i>{{userName}}</span>
+                </a>
+                <li class="nested" [class.expand]="selectedMenu === 'user-profile'">
+                    <ul class="submenu">
+                        <li>
+                            <a href="javascript:void(0)">
+                                <span><i class="fa fa-fw fa-user"></i> {{ 'Profile' | translate }}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/login']" (click)="onLoggedout()">
+                                <span><i class="fa fa-fw fa-power-off"></i> {{ 'Log Out' | translate }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </div>-->
+
+
+        </div>
+    </div>
+</nav>

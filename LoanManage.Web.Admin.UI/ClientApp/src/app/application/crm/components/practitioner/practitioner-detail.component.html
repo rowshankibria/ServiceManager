@@ -1,0 +1,26 @@
+
+
+<div *ngIf="contactId>0; else elseBlock">
+    <dx-tab-panel #tabPanel
+                  [dataSource]="tabs"
+                  [selectedIndex]="0">
+        <div *dxTemplate="let item of 'generalInformation'">
+            <app-practitioner-form [entityModel]="entityModel"></app-practitioner-form>
+        </div>
+        <div *dxTemplate="let item of 'patients'">
+            <!--<app-patient-form [PageComponentKey]="Practitioner-patients"></app-patient-form>-->
+            <app-dx-data-grid [EntityId]="contactId" [PageComponentKey]="pagekeyComponent"></app-dx-data-grid>
+        </div>
+        <div [ngClass]="tabPageServiceStyle" *dxTemplate="let item of 'addresses'">
+        </div>
+        <div [ngClass]="tabPageServiceStyle" *dxTemplate="let item of 'documents'">
+        </div>
+        <div [ngClass]="tabPageServiceStyle" *dxTemplate="let item of 'communications'">
+        </div>
+        <div [ngClass]="tabPageServiceStyle" *dxTemplate="let item of 'compliances'">
+        </div>
+    </dx-tab-panel>
+</div>
+<ng-template #elseBlock>
+    <app-practitioner-form [entityModel]="entityModel"></app-practitioner-form>
+</ng-template>

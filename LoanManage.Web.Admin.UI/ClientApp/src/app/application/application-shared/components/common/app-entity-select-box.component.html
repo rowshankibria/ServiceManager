@@ -1,0 +1,26 @@
+
+<dx-drop-down-box #companyCombobox [(value)]="gridBoxValue" valueExpr="id" displayExpr="name" [deferRendering]="false" placeholder="Select..."
+                  [showClearButton]="true" [dataSource]="gridDataSource" [(opened)]="isDropDownBoxOpened">
+
+    <div *dxTemplate="let data of 'content'">
+        <dx-data-grid [dataSource]="gridDataSource"
+                      [columns]="columns"
+                      [selection]="{ mode: 'single' }"
+                      [hoverStateEnabled]="true"
+                      [filterRow]="{ visible: true }"
+                      [remoteOperations]="true"
+                      [showColumnLines]="false"
+                      [(selectedRowKeys)]="gridSelectedRowKeys"
+                      (onSelectionChanged)="onSelectionChanged($event)"
+                      (onInitialized)="onGridInitialized($event)">
+            <!--<dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[10, 20, 50, 100]" [showInfo]="true" [showNavigationButtons]="true"></dxo-pager>-->
+            <dxo-paging [pageSize]="8"></dxo-paging>
+        </dx-data-grid>
+    </div>
+    <!--<dx-validator>
+        <dxi-validation-rule type="{{required}}" message="{{entityType}} is required"></dxi-validation-rule>
+
+    </dx-validator>-->
+    <dx-validator #comboboxValidation></dx-validator>
+</dx-drop-down-box>
+<!--  [scrolling]="{ mode: 'paging' }" </dx-validation-group>-->

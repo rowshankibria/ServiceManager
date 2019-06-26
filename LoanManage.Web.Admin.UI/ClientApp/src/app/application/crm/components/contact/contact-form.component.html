@@ -1,0 +1,253 @@
+<div class="tab-detail-page-titlebar">
+    <app-titlebar style="position:unset!important;" (save)="onSaveClicked($event)" (close)="onCloseClicked($event)" (saveNew)="onSaveNNewClicked($event)" (saveClose)="onSaveNCloseClicked($event)"></app-titlebar>
+</div>
+
+<div [ngClass]="contentClass">
+    <form #userForm="ngForm">
+        <dx-validation-group #formValidation>
+            <div class="row">
+                <div class="col-sm-12 col-xl-7 col-lg-12 div-two-column-left">
+                    <div class="card mb-1">
+                        <div class="card-header" data-toggle="collapse" href="#collapseOne">
+                            <a class="card-title">
+                                General Information
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="card-body show">
+                            <div class="row">
+                                <div class="col-lg-3 col-xl-3 col-sm-12">
+                                    <div class="col-xl-12">
+                                        <app-image-upload #imgUploadControl></app-image-upload>
+                                    </div>
+                                </div>
+                                <div class="col-lg-9 col-xl-9 col-sm-12">
+                                    <div class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Title</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-select-box [items]="titleSelectItems" [searchEnabled]="true" [(value)]="contactDataSource.titleId" displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                            </dx-select-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>First Name</label>
+                                            <span class="required-mark">*</span>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-box [(value)]="contactDataSource.firstName" [valueChangeEvent]="'keyup'">
+                                                <dx-validator #firstNameValidation></dx-validator>
+                                            </dx-text-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Middle Name</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-box [(value)]="contactDataSource.middleName" [valueChangeEvent]="'keyup'">
+                                            </dx-text-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Last Name</label>
+                                            <span class="required-mark">*</span>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-box [(value)]="contactDataSource.lastName" [valueChangeEvent]="'keyup'">
+                                                <dx-validator #lastNameValidation></dx-validator>
+                                            </dx-text-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Date Of Birth</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-date-box [(value)]="contactDataSource.dateOfBirth" [min]="minDate" [max]="maxDate" displayFormat="dd/MM/yyyy"> </dx-date-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Nepali Date Of Birth</label>
+                                            <span class="required-mark">*</span>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <np-datepicker ([ngModel])="nepaliDateOfBirth" class="form-group" inputClass="form-control"></np-datepicker>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Gender</label>
+                                        </div>
+                                        <div class="col-xl-9 card-body-control-radio">
+                                            <dx-radio-group [items]="genderSelectItems" [(value)]="contactDataSource.genderId" displayExpr="name" valueExpr="id" layout="horizontal">
+                                            </dx-radio-group>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Email</label>
+                                            <span class="required-mark">*</span>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-box [(value)]="contactDataSource.email" [valueChangeEvent]="'keyup'">
+                                                <dx-validator #emailValidation></dx-validator>
+                                            </dx-text-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Business Phone</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-box [(value)]="contactDataSource.businessPhone" [valueChangeEvent]="'keyup'">
+                                            </dx-text-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Mobile Phone</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-box [(value)]="contactDataSource.mobile" [valueChangeEvent]="'keyup'">
+                                            </dx-text-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption-checkbox">
+                                            <label>Active</label>
+                                        </div>
+                                        <div class="col-xl-9 card-body-control-checkbox">
+                                            <dx-check-box [(value)]="contactDataSource.isActive"></dx-check-box>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-sm-12 col-xl-5 col-lg-12 div-two-column-right">
+                    <div class="card mb-1">
+                        <div class="card-header" data-toggle="collapse" href="#collapseTwo">
+                            <a class="card-title">
+                                Permanent Address
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="card-body show">
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>District</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="contactDataSource.presentDistrict" [valueChangeEvent]="'keyup'">
+                                    </dx-text-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Municipality</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="contactDataSource.presentMunicipality" [valueChangeEvent]="'keyup'">
+                                    </dx-text-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Ward No</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="contactDataSource.presentWardNo" [valueChangeEvent]="'keyup'">
+                                    </dx-text-box>
+                                </div>
+                            </div>
+
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Tole</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="contactDataSource.presentTole" [valueChangeEvent]="'keyup'">
+                                    </dx-text-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>House No</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="contactDataSource.presentHouseNo" [valueChangeEvent]="'keyup'">
+                                    </dx-text-box>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="card mb-1">
+                        <div class="card-header" data-toggle="collapse" href="#collapseThree">
+                            <a class="card-title">
+                                Present Address
+                            </a>
+                        </div>
+                        <div id="collapseThree" class="card-body show">
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>District</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="contactDataSource.permanentDistrict" [valueChangeEvent]="'keyup'">
+                                    </dx-text-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Municipality</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="contactDataSource.permanentMunicipality" [valueChangeEvent]="'keyup'">
+                                    </dx-text-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Ward No</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="contactDataSource.permanentWardNo" [valueChangeEvent]="'keyup'">
+                                    </dx-text-box>
+                                </div>
+                            </div>
+
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>Tole</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="contactDataSource.permanentTole" [valueChangeEvent]="'keyup'">
+                                    </dx-text-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-4 card-body-caption">
+                                    <label>House No</label>
+                                </div>
+                                <div class="col-xl-8">
+                                    <dx-text-box [(value)]="contactDataSource.permanentHouseNo" [valueChangeEvent]="'keyup'">
+                                    </dx-text-box>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </dx-validation-group>
+    </form>
+</div>

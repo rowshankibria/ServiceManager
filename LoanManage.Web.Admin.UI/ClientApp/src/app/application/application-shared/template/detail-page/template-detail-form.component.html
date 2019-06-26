@@ -1,0 +1,95 @@
+<app-titlebar (save)="onSaveClicked($event)" (close)="onCloseClicked($event)" (saveNew)="onSaveNNewClicked($event)" (saveClose)="onSaveNCloseClicked($event)"></app-titlebar>
+
+<div [ngClass]="contentClass">
+    <form #userForm="ngForm">
+         
+        <dx-validation-group #formValidation>
+            <div class="row">
+
+                <div class="col-sm-12 col-xl-7 col-lg-12 div-two-column-left">
+                    <div class="card mb-1">
+                        <div class="card-header" data-toggle="collapse" href="#collapseOne">
+                            <a class="card-title">
+                                General Information
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="card-body show">
+                            <div class="row">
+                               
+                                <div class="col-lg-6 col-xl-6 col-sm-12">
+                                    <div class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Business Profile</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <!--<dx-select-box [disabled]="disabledInUpdateMode" [items]="businessProfileDataSource" [(value)]="formDataSource.businessProfileId"
+                                                           displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                                <dx-validator>
+                                                    <dxi-validation-rule type="required" message="Business Profile is required"></dxi-validation-rule>
+                                                </dx-validator>
+                                            </dx-select-box>-->
+                                        </div>
+                                    </div>
+                                    <div class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Name</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <!--<dx-text-box [(value)]="formDataSource.name" [valueChangeEvent]="'keyup'">
+                                                 <dx-validator>
+                                                    <dxi-validation-rule type="required" message="Name is required"></dxi-validation-rule>
+                                                </dx-validator>
+                                            </dx-text-box>-->
+                                        </div>
+                                    </div>
+                                    <div *ngIf="formDataSource.isActive" class="row form-group">
+                                        <div class="col-xl-3 card-body-caption-checkbox">
+                                            <label></label>
+                                        </div>
+                                        <div class="col-xl-9 card-body-control-checkbox">
+                                            <!--<dx-check-box [disabled]="disabledDefaultCheckbox" [(value)]="formDataSource.isDefault" text=" Default"></dx-check-box>-->
+                                        </div>
+                                    </div>
+
+                                    <div *ngIf="recordId>0 && !formDataSource.isDefault" class="row form-group">
+                                        <div class="col-xl-3 card-body-caption-checkbox">
+                                            <label></label>
+                                        </div>
+                                        <div class="col-xl-9 card-body-control-checkbox">
+                                            <!--<dx-check-box [(value)]="formDataSource.isActive" text=" Active"></dx-check-box>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-xl-5 col-lg-12 div-two-column-right">
+                    <div class="card mb-1">
+                        <div class="card-header" data-toggle="collapse" href="#collapseTwo">
+                            <a class="card-title">
+                                Office Contact Detail
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="card-body show">
+                            <div class="row form-group ">
+                                <div class="col-xl-3 card-body-caption">
+                                    <label>Name</label>
+                                </div>
+                                <div class="col-xl-9">
+                                    <!--<dx-text-box [(value)]="formDataSource.name" [valueChangeEvent]="'keyup'">
+                                </dx-text-box>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </dx-validation-group>
+    </form>
+</div>
+

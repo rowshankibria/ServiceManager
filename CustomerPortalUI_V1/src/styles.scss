@@ -1,0 +1,300 @@
+/* You can add global styles to this file, and also import other style files */
+//@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.mat-table__wrapper {
+	width: 100%;
+	overflow-x: auto;
+
+	mat-cell,
+	mat-header-cell {
+		min-height: 100%;
+	}
+}
+
+.mat-table__wrapper .mat-table {
+	min-width: 1000px;
+	width: 100%;
+}
+
+.mat-table__wrapper--dashboard .mat-table {
+	min-width: 600px !important;
+}
+
+.mat-table__wrapper .mat-table .email-cell {
+	word-wrap: normal;
+	width: 180px;
+	flex: auto;
+}
+
+.m-mat-dialog-container__wrapper .mat-dialog-container {
+	padding: 0;
+	overflow-x: hidden;
+
+	.m-portlet {
+		margin-bottom: 0;
+	}
+
+	.alert {
+		border-radius: 0 !important;
+		width: 1032px;
+	}
+}
+
+.mat-table__wrapper--sub .mat-table {
+	min-width: 400px;
+
+	.mat-cell:last-child {
+		flex: 0 0 100px;
+	}
+
+	.mat-header-cell:last-child {
+		flex: 0 0 100px;
+	}
+}
+
+.ml-auto {
+	margin-left: auto;
+}
+
+.example-full-width {
+	width: 100%;
+}
+
+mat-radio-button {
+	padding-right: 16px;
+}
+
+.m-form--alert {
+	margin-top: 30px;
+}
+
+.mat-column-checkbox {
+	flex: 0 0 68px;
+}
+
+.mat-column-id {
+	flex: 0 0 68px;
+}
+
+.mat-column-main {
+	flex: 0 0 568px;
+}
+
+.mat-column-actions {
+	flex: 0 0 160px;
+}
+
+.mat-table__bottom {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.mat-column-vinCode {
+	flex: 0 0 170px;
+}
+
+.m-portlet-mx-0 {
+	margin: -1.1rem -2.2rem 0;
+	overflow-x: hidden;
+}
+
+.mat-table__wrapper .mat-table .mat-row-editing.mat-row-inactive {
+	height: 0;
+	min-height: 0;
+	padding: 0 !important;
+	border-bottom: 0 !important;
+}
+
+.m-subheader {
+    padding: 20px 0 0 0 !important;
+}
+
+.m-body .m-content {
+    padding: 15px 0 !important;
+}
+
+@media (min-width: 1025px) {
+	.m-header--fixed.m-header--minimize-off .m-header {
+		transition: all 0.3s ease 0.3s;
+		height: 60px !important;
+	}
+
+	.m-header--fixed .m-body {
+		padding-top: 90px !important;
+	}
+
+	.m-header-menu {
+		min-width: 330px !important;
+	}
+}
+
+/******************* Detail Form Label and Control **************************/
+
+.form-group {
+    text-align: right;
+    margin-bottom: .5rem!important;
+}
+
+p {
+    text-align: left;
+    /*margin-bottom: 0px;*/
+}
+
+@media screen and (max-width: 992px) {
+    .form-group {
+        text-align: left;
+    }
+
+    .dx-toolbar-after {
+        right: 0 !important;
+    }
+}
+
+
+
+/* large window for two column div */
+.div-two-column-left {
+    padding-right: 0px;
+    padding-left: 20px;
+}
+
+.div-two-column-right {
+    padding-left: 5px;
+    padding-right: 20px;
+}
+
+.div-one-column {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* if two column div is designed */
+@media only screen and (max-width: 1024px) {
+
+    .div-two-column-left {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .div-two-column-right {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+
+/* label caption */
+.card-body-caption {
+    padding-right: 0px;
+    padding-top: 7px;
+    /*font-size: 1.0em;*/
+    font-size: 14px;
+}
+
+/* label caption checkbox */
+.card-body-caption-checkbox {
+    padding-right: 0px;
+    font-size: 14px;
+}
+
+/* label caption radiobox */
+.card-body-caption-radioOption {
+    padding-right: 0px;
+    padding-top: 2px;
+    /*font-size: 1.0em;*/
+    font-size: 14px;
+}
+
+
+/* control align */
+.card-body-control-checkbox {
+    text-align: left;
+}
+
+/* control align */
+.card-body-control-radio {
+    text-align: left;
+    padding-top: 5px;
+}
+
+/* label caption */
+@media only screen and (max-width: 1200px) {
+
+    .card-body-caption {
+        padding-right: 0px;
+        padding-top: 7px;
+        /*font-size: 1.0em;*/
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .card-body-caption-checkbox {
+        padding-right: 0px;
+        font-size: 14px;
+        text-align: left;
+    }
+
+    /* label caption radiobox */
+    .card-body-caption-radioOption {
+        padding-right: 0px;
+        padding-top: 2px;
+        /*font-size: 1.0em;*/
+        font-size: 14px;
+        text-align: left;
+    }
+}
+
+
+.detail-page-content-div {
+    padding-top: 5px;
+    padding-left: 5px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 90vh;
+    /*padding-bottom: 60px;*/
+}
+
+
+.card-header {
+    font-size: 15px;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+    border-bottom: none;
+    background-color: transparent;
+}
+
+.card-header:after {
+    font-family: 'FontAwesome';
+    float: left;
+    font-size: 18px;
+    vertical-align: middle;
+    // content: "\f106";
+    padding-left: 4px;
+}
+
+
+// .card-header.collapsed:after {
+    
+//     content: "\f107";
+// }
+
+
+.card-title {
+    padding-left: 5px;
+    font-size: 15px;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1px!important;
+    color: red;
+}
+
+/******************* Detail Form Label and Control **************************/
+
+// SUB-HEADER TITLE::START
+.m-portlet.m-portlet--head-lg .m-portlet__head {
+    height: 5.1rem;
+}
+// SUB-HEADER TITLE::END

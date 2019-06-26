@@ -1,0 +1,53 @@
+<app-titlebar (new)="onNewClicked()" (delete)="onDeleteClicked()" (refresh)="onRefreshClicked()" (close)="onCloseClicked()"></app-titlebar>
+
+<div style="margin-top:45px;padding-left: 5px;">
+  <dx-data-grid #grdCompany
+                id="grdCompany"
+                [dataSource]="dataSource"
+                [allowColumnReordering]="true"
+                [allowColumnResizing]="true"
+                [columnAutoWidth]="true"
+                [showColumnLines]="false"
+                [showRowLines]="true"
+                [showBorders]="true"
+                [rowAlternationEnabled]="true"
+                keyExpr="id"
+                [height]="gridHeight"
+                [loadPanel]="true"
+                [remoteOperations]="true"
+                [(selectedRowKeys)]="selectedRows">
+    <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
+    <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
+    <dxo-filter-row [visible]="true"></dxo-filter-row>
+    <dxo-header-filter [visible]="false"></dxo-header-filter>
+    <dxo-search-panel [visible]="true" [width]="240" ></dxo-search-panel>
+    <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
+    <dxo-selection mode="multiple" showCheckBoxesMode="always" [allowSelectAll]="false" selectAllMode="allPages"></dxo-selection>
+    <dxi-column dataField="companyName" cellTemplate="nameEditTemplate"></dxi-column>
+    <dxi-column dataField="businessProfile"></dxi-column>
+    <dxi-column dataField="accountNumber"></dxi-column>
+    <dxi-column dataField="tradeAs"></dxi-column>
+    <dxi-column dataField="abn"></dxi-column>
+    <dxi-column dataField="acn"> </dxi-column>
+    <!--<dxi-column dataField="industry"></dxi-column>
+    <dxi-column dataField="primaryContact"></dxi-column>-->
+    <dxi-column dataField="mainPhone"></dxi-column>
+    <dxi-column dataField="fax"></dxi-column>
+    <dxi-column dataField="mobilePhone"></dxi-column>
+    <dxi-column dataField="email"></dxi-column>
+    <dxi-column dataField="website"></dxi-column>
+    <dxi-column dataField="isActive"></dxi-column>
+    <!--<dxi-column dataField="createdBy"></dxi-column>-->
+
+    <!--<dxo-remote-operations [sorting]="true"
+                           [paging]="true">
+    </dxo-remote-operations>-->
+
+    <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[10, 20, 50, 100]" [showInfo]="true" [showNavigationButtons]="true"></dxo-pager>
+    <dxo-paging [pageSize]="50"></dxo-paging>
+
+    <div *dxTemplate="let data of 'nameEditTemplate'">
+      <a href="javascript:void(0)" (click)="updateRecords(data)">{{data.value}}</a>
+    </div>
+  </dx-data-grid>
+</div>

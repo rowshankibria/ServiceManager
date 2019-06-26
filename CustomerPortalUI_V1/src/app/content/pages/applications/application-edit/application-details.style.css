@@ -1,0 +1,12 @@
+.m-portlet .m-portlet__head {
+    height: 5.1rem !important;
+}
+
+
+.item-invisible {
+    display: none;
+}
+
+.item-visible {
+    display: flex;
+}

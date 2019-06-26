@@ -1,0 +1,27 @@
+
+
+<!--<div *ngIf="businessProfileId>0; else elseBlock">
+    <dx-tab-panel #tabPanel
+                  [dataSource]="tabs"
+                  [selectedIndex]="0">
+        <div *dxTemplate="let item of 'generalInformation'">
+            <app-business-profile-general-information #bpGeneralInformationComponent [businessProfileId]="businessProfileId"></app-business-profile-general-information>
+        </div>
+        <div *dxTemplate="let item of 'addresses'">
+            <app-address-list-detail
+                                          [EntityId]="businessProfileId"
+                                          [UniqueEntityId]="bpGeneralInformationComponent.businessProfileUniqueRowId"
+                                          [BusinessProfileId]="businessProfileId"                                         
+                                          ></app-address-list-detail>
+        </div>
+        <div *dxTemplate="let item of 'emailServers'">
+            
+        </div>
+        <div *dxTemplate="let item of 'documentExtensions'">
+           
+        </div>
+    </dx-tab-panel>
+</div>-->
+<!--<ng-template #elseBlock>-->
+    <app-business-profile-general-information [businessProfileId]="businessProfileId"></app-business-profile-general-information>
+<!--</ng-template>-->

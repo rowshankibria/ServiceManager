@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LoanManager.Web.Api</name>
+    </assembly>
+    <members>
+        <member name="T:LoanManager.Web.Api.ExceptionMiddleware">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LoanManager.Web.Api.ExceptionMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Logging.ILogger{LoanManager.Web.Api.ExceptionMiddleware})">
+            <summary>
+            
+            </summary>
+            <param name="next"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:LoanManager.Web.Api.ExceptionMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LoanManager.Web.Api.ExceptionMiddleware.HandleExceptionAsync(Microsoft.AspNetCore.Http.HttpContext,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="exception"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

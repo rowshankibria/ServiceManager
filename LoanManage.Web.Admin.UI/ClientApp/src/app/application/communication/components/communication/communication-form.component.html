@@ -1,0 +1,142 @@
+<div class="tab-detail-page-titlebar">
+    <app-titlebar style="position:unset!important;" (save)="onSaveClicked($event)" (close)="onCloseClicked()" (saveNew)="onSaveNNewClicked()" (saveClose)="onSaveNCloseClicked()"></app-titlebar>
+</div>
+
+<div [ngClass]="contentClass">
+    <form #communicationForm="ngForm">
+        <dx-validation-group #formValidation>
+            <div class="row">
+                <div class="col-sm-12 col-xl-6 col-lg-12">
+                    <div class="card mb-1">
+                        <div class="card-header" data-toggle="collapse" href="#collapseOne">
+                            <a class="card-title">
+                                General Information
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="card-body show">
+                            <div class="row">
+                                <div class="col-sm-12 col-xl-12 col-lg-6 div-two-column-Left">
+                                    <div class="row form-group">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Business Profile</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-select-box #businessProfileSelectionBox [items]="businessProfileSelectItems" [(value)]="communicationModel.businessProfileId" displayExpr="name" valueExpr="id" (onValueChanged)="onCommunicationForValueChanged($event)" [showClearButton]="true">
+                                                <!--<dx-validator #businessProfileSelectionBox></dx-validator>-->
+                                            </dx-select-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Notes & Comms For</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-select-box #communicationForSelectionBox [items]="communicationForSelectItems" [(value)]="communicationModel.entityTypeId" displayExpr="name" valueExpr="id" (onValueChanged)="onCommunicationForValueChanged($event)" [showClearButton]="true">
+
+                                            </dx-select-box>
+                                        </div>
+                                    </div>
+                                    <div [ngClass]="entityClass">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>{{communicationForSelectionBox.text}}</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <app-entity-select-box #communicationEntitySelectionBox [IsRequired]="true" [EntityType]="communicationEntitySelectionBox.text"></app-entity-select-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Subject</label>
+                                            <span class="required-mark">*</span>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-box [(value)]="communicationModel.subject" [valueChangeEvent]="'keyup'">
+                                                <dx-validator #subjecctValidation></dx-validator>
+                                            </dx-text-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Note</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-area [(value)]="communicationModel.note" [valueChangeEvent]="'keyup'">
+                                            </dx-text-area>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Communication Date</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-date-box [(value)]="communicationModel.communicationDateTime" displayFormat="dd/MM/yyyy"> </dx-date-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Communication Mathod</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-select-box [items]="communicationMathodSelectItems" [(value)]="communicationModel.methodTypeId" displayExpr="name" valueExpr="id" (onValueChanged)="onCommunicationForValueChanged($event)" [showClearButton]="true">
+                                            </dx-select-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Status</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-select-box [items]="communicationStatusSelectItems" [(value)]="communicationModel.statusId" displayExpr="name" valueExpr="id" (onValueChanged)="onCommunicationForValueChanged($event)" [showClearButton]="true">
+                                            </dx-select-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group ">
+                                        <div class="col-xl-3 card-body-caption-checkbox">
+                                        </div>
+                                        <div class="col-xl-9 card-body-control-checkbox">
+                                            <dx-check-box [(value)]="communicationModel.isFollowupEnable" text="Followup Enable">Followup Enable</dx-check-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group" *ngIf="communicationModel.isFollowupEnable">
+                                        <div class="col-xl-3 card-body-caption">
+                                            <label>Followup Contact</label>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <dx-text-box [(value)]="communicationModel.followupByContactId" [valueChangeEvent]="'keyup'">
+                                            </dx-text-box>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group " *ngIf="communicationModel.isFollowupEnable">
+                                        <div class="col-xl-3 card-body-caption-checkbox">
+                                            <label>Followup Date</label>
+                                        </div>
+                                        <div class="col-xl-9 card-body-control-checkbox">
+                                            <dx-date-box [(value)]="communicationModel.followupDate" displayFormat="dd/MM/yyyy"> </dx-date-box>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-xl-6 col-lg-12">
+                    <div class="card mb-1">
+                        <div class="card-header" data-toggle="collapse" href="#collapseTwo">
+                            <a class="card-title">
+                                Files
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="card-body show">
+                            <div class="row">
+                                <div class="col-sm-12 col-xl-12 col-lg-12">
+                                    <dms-file-upload #fileUploadControl></dms-file-upload>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </dx-validation-group>
+    </form>
+</div>

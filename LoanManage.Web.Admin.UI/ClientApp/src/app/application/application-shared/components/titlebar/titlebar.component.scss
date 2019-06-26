@@ -1,0 +1,78 @@
+
+$toolbar-background-color: #3a295d; /*rgb(0, 60, 108);*/ /*#386096;*/
+:host {
+    .toolbar-outer-area {
+        /*width: 100%;*/
+        background-color: $toolbar-background-color;
+        font-size: 12px;
+        height: 40px;
+        position: static; /*fixed;*/
+        /*z-index: 300;*/
+        z-index: 1502;
+        margin-bottom: 2px; /*5px;*/
+        padding-left: 20px;
+        padding-right: 5px;
+        left: 200px;
+        right: 0;
+    }
+
+    .toolbar-outer-area-tab-page {
+        /*width: 100%;*/
+        background-color: $toolbar-background-color;
+        font-size: 12px;
+        height: 40px;
+        position: fixed;
+        z-index: 300;
+        margin-bottom: 5px;
+        padding-left: 20px;
+        padding-right: 5px;
+        left: 0px !important;
+        right: 0;
+    }
+
+    .toolbar-custom-area {
+        background-color: $toolbar-background-color;
+        padding-right: 20px;
+    }
+
+    .dx-toolbar-layout {
+        background-color: $toolbar-background-color;
+        padding-right: 20px;
+        padding-top: 2px;
+    }
+}
+
+
+/deep/ .dx-button {
+  border: none !important;
+}
+
+
+/deep/.dx-button-has-text .dx-button-content {
+  padding: 8px 8px 8px !important;
+  font-size: 12px;
+  border-radius: 0 !important;
+  color: #FFFFFF !important;
+  background-color: $toolbar-background-color!important;
+}
+
+
+/deep/.dx-button .dx-button-content {
+  font-size: 12px;
+}
+
+
+/deep/.dx-button-has-text .dx-icon {
+  color: #FFFFFF !important;
+}
+
+
+/*.dx-toolbar-item {
+  padding: 0 0 0 0 !important;
+}*/
+
+/deep/.dx-toolbar-menu-section .dx-toolbar-item-auto-hide {
+  padding: 0 0 !important;
+  color: black;
+  background-color: $toolbar-background-color;
+}

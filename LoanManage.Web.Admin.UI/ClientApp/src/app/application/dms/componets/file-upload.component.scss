@@ -1,0 +1,41 @@
+
+
+$toolbar-background-color: #386096;
+
+:host {
+    .file-caption-area {
+        /*width: 100%;*/
+        background-color: $toolbar-background-color;
+        //height: 30px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        margin: 0px;
+        margin-bottom: 5px !important;
+        font-size: 16px;
+        color: #ffffff;
+    }
+}
+
+/deep/ .dx-fileuploader-input-wrapper {
+    display: flex !important;
+}
+
+/deep/ .dx-fileuploader-content > .dx-fileuploader-upload-button {
+    display: flex !important;
+}
+
+/deep/ .dx-fileuploader-file-info {
+    display: flex !important;
+}
+
+/deep/ .dx-fileuploader-file-status-message {
+    display: flex !important;
+}
+
+.show-remove-button {
+    display: flex !important;
+}
+
+.hide-remove-button {
+    display: flex !important;
+}

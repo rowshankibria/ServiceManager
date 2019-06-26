@@ -1,0 +1,189 @@
+<div class="tab-detail-page-titlebar">
+    <app-titlebar style="position:unset!important;"  [HideSaveAndNew] ="true" (save)="onSaveClicked($event)" (close)="onCloseClicked()" (saveNew)="onSaveNNewClicked()" (saveClose)="onSaveNCloseClicked()"></app-titlebar>
+</div>
+<div [ngClass]="contentClass">
+    <form #securityConfigForm="ngForm">
+        <dx-validation-group #formValidation>
+            <div class="row">
+                <div class="col-sm-12 col-xl-6 col-lg-12 div-two-column-left">
+                    <div class="card mb-1">
+                        <div class="card-header" data-toggle="collapse" href="#collapseOne">
+                            <a class="card-title">
+                                Audits & Warnings
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="card-body show">
+                            <div class="row form-group ">
+                                <div class="col-xl-6 card-body-caption-checkbox">
+                                    <label>Enable data change log</label>
+                                </div>
+                                <div class="col-xl-6 card-body-control-checkbox">
+                                    <dx-check-box [(value)]="securityConfiguration.enableDataAuditLog" text=""></dx-check-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-6 card-body-caption-checkbox">
+                                    <label>Enable user authentication log</label>
+                                </div>
+                                <div class="col-xl-6 card-body-control-checkbox">
+                                    <dx-check-box [(value)]="securityConfiguration.enableAuthenticationLog" text=""></dx-check-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-6 card-body-caption-checkbox">
+                                    <label>Enable application error log</label>
+                                </div>
+                                <div class="col-xl-6 card-body-control-checkbox">
+                                    <dx-check-box [(value)]="securityConfiguration.enableErrorLog" text=""></dx-check-box>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-1">
+                        <div class="card-header" data-toggle="collapse" href="#collapseTwo">
+                            <a class="card-title">
+                                Login
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="card-body show">
+                            <div class="row form-group ">
+                                <div class="col-xl-6 card-body-caption-checkbox">
+                                    <label>Allow user stay signed in (not recommended)</label>
+                                </div>
+                                <div class="col-xl-6 card-body-control-checkbox">
+                                    <dx-check-box [(value)]="securityConfiguration.enableAutoLogin" text=""></dx-check-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-6 card-body-caption-checkbox">
+                                    <label>Allow user retrieve their password from login page</label>
+                                </div>
+                                <div class="col-xl-6 card-body-control-checkbox">
+                                    <dx-check-box [(value)]="securityConfiguration.enableRetrievePassword" text=""></dx-check-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-6 card-body-caption-checkbox">
+                                    <label>Enable CAPTCHA</label>
+                                </div>
+                                <div class="col-xl-6 card-body-control-checkbox">
+                                    <dx-check-box [(value)]="securityConfiguration.enableCaptcha" text=""></dx-check-box>
+                                </div>
+                            </div>
+                            <div class="row form-group ">
+                                <div class="col-xl-6 card-body-caption">
+                                    <label>Consecutive failed attempts before force CAPTCHA</label>
+                                </div>
+                                <div class="col-xl-6">
+                                    <dx-number-box class="control-custom-width-textbox" [(value)]="securityConfiguration.numberOfAttemptsBeforeCaptcha" [valueChangeEvent]="'keyup'" [showSpinButtons]="true">
+                                    </dx-number-box>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-xl-6 col-lg-12 div-two-column-right">
+                    <div class="card mb-1">
+                        <div class="card-header" data-toggle="collapse" href="#collapseThree">
+                            <a class="card-title">
+                                User Configurations
+                            </a>
+                        </div>
+                        <div id="collapseThree" class="card-body show">
+                            <div class="row form-group">
+                                <div class="col-xl-6 card-body-caption">
+                                    <label>Default Authentication Type</label>
+                                </div>
+                                <div class="col-xl-6">
+                                    <dx-select-box class="control-custom-width-selectionbox" [items]="authenticationTypeSelectItems" [(value)]="securityConfiguration.defaultUserAuthType" displayExpr="name" valueExpr="id" [showClearButton]="true">
+                                        <dx-validator #authenticationValidation></dx-validator>
+                                    </dx-select-box>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-xl-6 card-body-caption-radioOption">
+                                    <label>B2B Username Type</label>
+                                </div>
+                                <div class="col-xl-6">
+                                    <dx-radio-group [items]="userNameTypeSelectItems" [(value)]="securityConfiguration.b2BUsernameType" displayExpr="name" valueExpr="id" layout="horizontal">
+                                    </dx-radio-group>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-xl-6 card-body-caption-radioOption">
+                                    <label>Employee Username Type</label>
+                                </div>
+                                <div class="col-xl-6">
+                                    <dx-radio-group [items]="userNameTypeSelectItems" [(value)]="securityConfiguration.employeeUsernameType" displayExpr="name" valueExpr="id" layout="horizontal">
+                                    </dx-radio-group>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-xl-6 card-body-caption-radioOption">
+                                    <label>Other Username Type</label>
+                                </div>
+                                <div class="col-xl-6">
+                                    <dx-radio-group [items]="userNameTypeSelectItems" [(value)]="securityConfiguration.otherUsernameType" displayExpr="name" valueExpr="id" layout="horizontal">
+                                    </dx-radio-group>
+                                </div>
+                            </div>
+
+                            <div class="row form-group ">
+                                <div class="col-xl-6 card-body-caption-checkbox">
+                                    <label>Enable Password Reset Restriction</label>
+                                </div>
+                                <div class="col-xl-6 card-body-control-checkbox">
+                                    <dx-check-box [(value)]="securityConfiguration.enablePasswordResetRestriction" text=""></dx-check-box>
+                                </div>
+                            </div>
+
+                            <div class="row form-group ">
+                                <div class="col-xl-6 card-body-caption-checkbox">
+                                    <label>Enable SSO</label>
+                                </div>
+                                <div class="col-xl-6 card-body-control-checkbox">
+                                    <dx-check-box [(value)]="securityConfiguration.enableSSO" text=""></dx-check-box>
+                                </div>
+                            </div>
+
+                            <div class="row form-group ">
+                                <div class="col-xl-6 card-body-caption-checkbox">
+                                    <label>Enable Accessibility Compliant</label>
+                                </div>
+                                <div class="col-xl-6 card-body-control-checkbox">
+                                    <dx-check-box [(value)]="securityConfiguration.enableAccessibilityCompliant" text=""></dx-check-box>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card mb-1">
+                        <div class="card-header" data-toggle="collapse" href="#collapseFour">
+                            <a class="card-title">
+                                Document Security Configuration
+                            </a>
+                        </div>
+                        <div id="collapseFour" class="card-body show">
+
+                            <div class="row form-group ">
+                                <div class="col-xl-6 card-body-caption-checkbox">
+                                    <label>Delete Physical Document when Document or File Deleted</label>
+                                </div>
+                                <div class="col-xl-6 card-body-control-checkbox">
+                                    <dx-check-box [(value)]="securityConfiguration.deletePhysicalDocument" text=""></dx-check-box>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </dx-validation-group>
+    </form>
+
+</div>

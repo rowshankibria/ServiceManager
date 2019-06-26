@@ -1,0 +1,15 @@
+<div *ngIf="formulaCategoryId>0; else elseBlock">
+    <dx-tab-panel #tabPanel
+                  [dataSource]="tabs"
+                  [selectedIndex]="0">
+        <div *dxTemplate="let item of 'generalInformation'">
+            <app-formula-category-form [entityModel]="entityModel"></app-formula-category-form>
+        </div>
+        <div [ngClass]="tabPageServiceStyle" *dxTemplate="let item of 'formulaSubcategories'">
+            <app-dx-data-grid [EntityId]="formulaCategoryId" [PageComponentKey]="pagekeyComponent"></app-dx-data-grid>
+        </div>
+    </dx-tab-panel>
+</div>
+<ng-template #elseBlock>
+    <app-formula-category-form [entityModel]="entityModel"></app-formula-category-form>
+</ng-template>
