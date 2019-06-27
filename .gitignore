@@ -4,3 +4,5 @@
 
 /LoanManagerAPI_V2/packages
 /LoanManagerAPI_V2/.vs
+/.vs
+/LoanManagerAPI_V2/LoanManager.Shared/obj/Release
